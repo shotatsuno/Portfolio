@@ -1,0 +1,2 @@
+class DeckTheme < ApplicationRecord
+end
