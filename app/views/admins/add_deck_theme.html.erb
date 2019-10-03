@@ -1,0 +1,8 @@
+<div>
+  <h1>デッキテーマの追加</h1>
+      <%= form_for @deck_theme, url: register_deck_theme_path, method: :post do |f| %>
+        <%= f.label :deck_theme, 'デッキテーマの追加' %>
+        <%= f.text_field :deck_theme %>
+      <%= f.submit '登録' %>
+      <% end %>
+</div>

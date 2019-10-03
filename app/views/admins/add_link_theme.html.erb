@@ -1,0 +1,8 @@
+<div>
+  <h1>リンクステーマの追加</h1>
+      <%= form_for @link_theme, url: register_link_theme_path, method: :post do |f| %>
+        <%= f.label :link_theme, 'リンクステーマの追加' %>
+        <%= f.text_field :link_theme %>
+      <%= f.submit '登録' %>
+      <% end %>
+</div>

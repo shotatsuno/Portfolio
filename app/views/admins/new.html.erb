@@ -1,0 +1,28 @@
+<div class = 'container'>
+  <h1>カテゴリ登録</h1>
+  <h2>現在存在するカテゴリー</h2>
+  
+    <div class = 'row'>
+      <div class = 'col-lg-5'>
+        <h2>デッキタイプ</h2>
+          <ul class="tab_menu">
+            <% @deck_themes.each do |f| %>
+              <li><%= f.deck_theme %></li>
+            <% end %>
+          </ul>
+        <%= link_to '追加', add_deck_theme_path %>
+      </div>
+      
+      <div class = 'col-lg-5 col-lg-offset-2'>
+        <h2>リンクステーマ</h2>
+          <ul class="tab_menu">
+            <% @link_themes.each do |f| %>
+              <li><%= f.link_theme %></li>
+            <% end %>
+          </ul>
+        <%= link_to '追加', add_link_theme_path %>
+      </div>
+    
+    </div>
+
+</div>
