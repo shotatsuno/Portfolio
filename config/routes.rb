@@ -8,11 +8,18 @@ Rails.application.routes.draw do
     :sessions => 'users/sessions'
   }
   
+  resources :users, only: [:index, :show, :edit]
+  
   resources :admins, only: [:index, :new] 
   get 'add_deck_theme' => 'admins#add_deck_theme' 
   get 'add_link_theme' => 'admins#add_link_theme'
   post 'register_deck_theme' => 'admins#register_deck_theme'
   post 'register_link_theme' => 'admins#register_link_theme'
   
+  resources :decks 
+  
+  get 'how_to_upload' => 'extra#how_to_upload'
+  
+  root 'decks#index'
 
 end

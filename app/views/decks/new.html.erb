@@ -1,0 +1,70 @@
+<div class='container post_deck'>
+  <h1>デッキレシピを投稿しよう！</h1>
+    <%= form_with model: @deck, local: true do |f| %>
+  
+    <div class = "form-group">
+      <%= f.label :deck_name, 'デッキ名を入力（必須）'%></br>
+      <%= f.text_field :deck_name %></br>
+    </div>
+
+    <div class = "form-group">
+      <h3>どんなデッキ？</h3>
+      <%= f.collection_select :decktheme_id, @deck_themes, :id, :deck_theme, include_blank: 'デッキテーマ' %>
+    </div>
+
+    <div class = "form-group">
+      <h3>リンクステーマ</h3>
+      <%= f.collection_select :linktheme_id, @link_themes, :id, :link_theme, include_blank: 'リンクステーマ' %>
+    </div>
+  
+    <div class = "form-group">
+      <h2>画像をアップロード</h2>
+      <%= f.file_field :image %>
+    </div>
+
+    <div class = "form-group">
+      <%= link_to "画像のアップロード方法", how_to_upload_path %>
+    </div>
+
+    <div class = "form-group">
+      <span>デッキの説明</span>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        入力
+      </button>
+    </div>
+
+<!-- モーダルの設定 -->
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">デッキの説明</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+                <div class="modal-body">
+                   <%= f.text_area :deck_detail, class: "form-control",size: "100x20" %>
+          </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+              </div>
+        </div>
+      </div>
+  </div>
+
+
+    <div class = "form-group">
+      <%= f.check_box :deck_status %><span>公開</span>
+    </div>
+
+
+      
+    <%= f.submit "確定" %>
+  
+  <% end %>
+  
+   
+  
+
+</div>

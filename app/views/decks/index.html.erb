@@ -1,0 +1,17 @@
+<h1>デッキ一覧</h1>
+
+<div class="container">
+  <% @decks.each do |f| %>
+    <div class="row">
+      <div class="col-xs-4">
+        <% if f.image.attached? %>
+          <%= image_tag f.image %>
+        <% end %>
+      </div>
+      <div class="col-xs-8">
+        <%= f.user.user_name %>
+        <%= f.deck_name %>
+      </div>
+    </div>
+  <% end %>
+</div>

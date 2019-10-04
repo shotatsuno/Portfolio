@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_03_063704) do
+ActiveRecord::Schema.define(version: 2019_10_03_121752) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 2019_10_03_063704) do
     t.string "deck_theme"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_deck_themes_on_deleted_at"
   end
 
   create_table "decks", force: :cascade do |t|
@@ -66,9 +68,9 @@ ActiveRecord::Schema.define(version: 2019_10_03_063704) do
     t.integer "comment_id"
     t.string "deck_name", null: false
     t.text "deck_detail"
-    t.integer "deck_status", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "deck_status", default: false, null: false
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -115,6 +117,8 @@ ActiveRecord::Schema.define(version: 2019_10_03_063704) do
     t.string "link_theme"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_link_themes_on_deleted_at"
   end
 
   create_table "relationships", force: :cascade do |t|

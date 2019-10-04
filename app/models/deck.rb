@@ -5,4 +5,6 @@ class Deck < ApplicationRecord
   
   has_many :like_decks, foreign_key: 'deck_id' , dependent: :destroy
   has_many :users, through: :like_decks
+  
+  has_one_attached :image
 end
