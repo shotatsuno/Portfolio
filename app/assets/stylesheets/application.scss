@@ -16,6 +16,13 @@
 
  @import "bootstrap";            /*ここを追加*/
 
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
   margin-bottom: 30px;
   padding-bottom: 0;

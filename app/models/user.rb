@@ -10,6 +10,9 @@ class User < ApplicationRecord
   
   has_many :decks
   
+  #画像
+  has_one_attached :image
+  
   #お気に入り機能
   has_many :like_decks
   has_many :likedecks, through: :like_decks, source: :deck
