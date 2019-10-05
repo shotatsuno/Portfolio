@@ -5,8 +5,14 @@ class DecksController < ApplicationController
     @link_themes = LinkTheme.all
   end
   
-  def show
+  def index
     @decks = Deck.all
+  end
+  
+  def show
+    @deck = Deck.find(params[:id])
+    @user = @deck.user
+    
   end
   
   
@@ -24,6 +30,6 @@ class DecksController < ApplicationController
   
   private
     def deck_params
-      params.require(:deck).permit(:linktheme_id,:decktheme_id,:deck_name,:deck_detail,:deck_status,:image)
+      params.require(:deck).permit(:link_theme_id,:deck_theme_id,:deck_name,:deck_detail,:deck_status,:image)
     end
 end

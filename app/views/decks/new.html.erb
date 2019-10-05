@@ -9,12 +9,12 @@
 
     <div class = "form-group">
       <h3>どんなデッキ？</h3>
-      <%= f.collection_select :decktheme_id, @deck_themes, :id, :deck_theme, include_blank: 'デッキテーマ' %>
+      <%= f.collection_select :deck_theme_id, @deck_themes, :id, :deck_theme, include_blank: 'デッキテーマ' %>
     </div>
 
     <div class = "form-group">
       <h3>リンクステーマ</h3>
-      <%= f.collection_select :linktheme_id, @link_themes, :id, :link_theme, include_blank: 'リンクステーマ' %>
+      <%= f.collection_select :link_theme_id, @link_themes, :id, :link_theme, include_blank: 'リンクステーマ' %>
     </div>
   
     <div class = "form-group">

@@ -1,17 +1,35 @@
 <h1>デッキ一覧</h1>
 
-<div class="container">
+<div class="container deck_index">
   <% @decks.each do |f| %>
-    <div class="row">
-      <div class="col-xs-4">
-        <% if f.image.attached? %>
-          <%= image_tag f.image %>
-        <% end %>
-      </div>
-      <div class="col-xs-8">
-        <%= f.user.user_name %>
-        <%= f.deck_name %>
-      </div>
-    </div>
-  <% end %>
+    <h3><%= link_to f.deck_name ,deck_path(f.id) %></h3>
+      <table border="1">
+        <tbody>
+          <tr>
+            <td class="deck_image" rowspan="2">
+              <% if f.image.attached? %>
+                <%= image_tag f.image.variant(resize:'200x200').processed %>
+              <% end %>
+            </td>
+          
+            <th id="post_user"> 投稿者</th>
+            <td colspan="2">
+              <small>
+                <%= f.user.user_name %>
+              </small>
+            </td>
+          </tr>
+          <tr>
+            <th>投稿日</th>
+            <td colspan="2"><%=f.created_at %></td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <strong>コメント</strong></br>
+              <small><%= f.deck_detail %></small>
+            </td>
+          </tr>
+          </tbody>
+      </table>
+          <% end %>
 </div>

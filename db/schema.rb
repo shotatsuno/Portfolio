@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_03_121752) do
+ActiveRecord::Schema.define(version: 2019_10_04_063049) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -62,15 +62,16 @@ ActiveRecord::Schema.define(version: 2019_10_03_121752) do
   end
 
   create_table "decks", force: :cascade do |t|
-    t.integer "user"
-    t.integer "linktheme_id"
-    t.integer "decktheme_id"
+    t.integer "user_id"
+    t.integer "link_theme_id"
+    t.integer "deck_theme_id"
     t.integer "comment_id"
     t.string "deck_name", null: false
     t.text "deck_detail"
+    t.boolean "deck_status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "deck_status", default: false, null: false
+    t.index ["user_id"], name: "index_decks_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -111,6 +112,9 @@ ActiveRecord::Schema.define(version: 2019_10_03_121752) do
     t.integer "deck_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deck_id"], name: "index_like_decks_on_deck_id"
+    t.index ["user_id", "deck_id"], name: "index_like_decks_on_user_id_and_deck_id", unique: true
+    t.index ["user_id"], name: "index_like_decks_on_user_id"
   end
 
   create_table "link_themes", force: :cascade do |t|

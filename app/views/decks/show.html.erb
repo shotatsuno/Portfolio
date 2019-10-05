@@ -1,1 +1,15 @@
 <h1>デッキ詳細</h1>
+  <div class="container">
+     <h3>投稿者名</h3>
+        <%= @user.user_name %>
+      <h3>投稿日</h3>
+        <%= @deck.created_at %>
+      <h3>カテゴリー</h3>
+        <%= @deck.link_theme.link_theme %>
+        <%= @deck.deck_theme.deck_theme %>
+      <h3>画像</h3>
+      <% if @deck.image.attached? %>
+        <%= image_tag @deck.image.variant(resize:'500x500').processed %>
+      <% end %>
+    
+  </div>
