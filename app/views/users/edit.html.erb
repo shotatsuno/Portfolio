@@ -15,7 +15,7 @@
     </div>
     <% end %>
 
-    <%= @user.user_name %>
+    <h3><%= @user.user_name %></h3>
     </div>
     </div>
     
@@ -67,7 +67,7 @@
             <th id="post_user"> デッキ名</th>
             <td colspan="2">
               <small>
-                <%= f.deck_name %>
+                <%= link_to f.deck_name, deck_path(f.id) %>
               </small>
             </td>
           </tr>
