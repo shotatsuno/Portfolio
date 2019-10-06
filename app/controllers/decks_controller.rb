@@ -12,6 +12,12 @@ class DecksController < ApplicationController
     @decks = Deck.all
   end
   
+  def popular_deck
+  end
+  
+  def trend_deck
+  end
+  
   def show
     @deck = Deck.find(params[:id])
     @user = @deck.user

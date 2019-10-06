@@ -18,15 +18,17 @@
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, notice: "ログアウトしました。" %></a></li>
         <li><a href="#"><%= link_to "デッキ投稿",new_deck_path %></a></li>
         <% else %>
-         <li><a href="#"><%= link_to "ログイン", new_user_session_path %></a></li>
+        <li><a href="#"><%= link_to "ログイン", new_user_session_path %></a></li>
         <li><a href="#"><%= link_to "新規登録", new_user_registration_path %></a></li>
         <% end %>
         <li><a href="#"><%= link_to "TOP",root_path %></a></li>
         <li><a href="#"><%= link_to "人気デュエリスト",users_path %></a></li>
        <% if admin_signed_in? %>
         <li class="nav-item">
-          <a><%= link_to "管理者としてログインしています", edit_admin_registration_path %></a>
-          <a><%= link_to "ログアウト", destroy_user_session_path, method: :delete, notice: "ログアウトしました。" %></a>
+          <li><a><%= link_to "管理者としてログインしています", edit_admin_registration_path %></a></li>
+          <li><a><%= link_to "デッキテーマを追加", add_deck_theme_path %></a></li>
+          <li><a><%= link_to "リンクステーマを追加", add_link_theme_path %></a></li>
+          <li><a><%= link_to "ログアウト", destroy_user_session_path, method: :delete, notice: "ログアウトしました。" %></a></li>
         </li>
        <% end %>
       </ul>

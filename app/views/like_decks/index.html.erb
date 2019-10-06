@@ -1,4 +1,4 @@
-<h1>デッキ一覧</h1>
+<h1>お気に入り一覧</h1>
 <section class="work-section" id="work">
   <header class="section-header clearfix">
     <div class="inner">
@@ -13,7 +13,7 @@
 </section>
 
 <div class="container deck_index">
-  <% @decks.each do |f| %>
+  <% @like_decks.each do |f| %>
     <h3><%= link_to f.deck_name ,deck_path(f.id) %></h3>
       <table border="1">
         <tbody>
@@ -43,5 +43,5 @@
           </tr>
           </tbody>
       </table>
-          <% end %>
+    <% end %>
 </div>

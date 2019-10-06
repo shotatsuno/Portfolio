@@ -1,6 +1,7 @@
 class LikeDecksController < ApplicationController
   
   def index
+    @like_decks=current_user.likedecks
   end
   
   

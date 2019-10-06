@@ -17,6 +17,23 @@
         <%= f.submit 'お気に入り登録', class: 'btn btn-primary' %>
         <% end %>
       <% end %>
+    
+      <% if @deck.favorited_by?(current_user) %>
+        <li>
+          <%= link_to deck_favorites_path(@deck.id),method: :delete do %>
+            <i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
+          <%= @deck.favorites.count %>いいね
+          <% end %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to deck_favorites_path(@deck.id),method: :post do %>
+             <i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
+          <%= @deck.favorites.count %>いいね
+          <% end %>
+        </li>
+      <% end %>
+    
       <h3>画像</h3>
       <% if @deck.image.attached? %>
         <%= image_tag @deck.image.variant(resize:'500x500').processed %>

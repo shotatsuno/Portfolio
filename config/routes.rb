@@ -15,7 +15,8 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :like_decks, only: [:index, :create, :destroy]
+  resources :like_decks, only: [:index, :create, :destroy] 
+    
   
   resources :admins, only: [:index, :new] 
   get 'add_deck_theme' => 'admins#add_deck_theme' 
@@ -23,7 +24,11 @@ Rails.application.routes.draw do
   post 'register_deck_theme' => 'admins#register_deck_theme'
   post 'register_link_theme' => 'admins#register_link_theme'
   
-  resources :decks 
+  resources :decks do
+    resource :favorites, only: [:create, :destroy]
+  end
+  get 'popular_deck' => 'decks#popular_deck'
+  get 'trend_deck' => 'decks#trend_deck'
   
   get 'how_to_upload' => 'extra#how_to_upload'
   
