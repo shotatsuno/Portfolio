@@ -7,6 +7,16 @@
       <h3>カテゴリー</h3>
         <%= @deck.link_theme.link_theme %>
         <%= @deck.deck_theme.deck_theme %>
+      <% if current_user.likedeck?(@deck) %>
+        <%= form_for(current_user.like_decks.find_by(deck_id: @deck.id),url: like_deck_path(@deck.id),method: :delete) do |f| %>
+          <%= f.submit "お気に入り解除", class: 'btn btn-danger' %>
+        <% end %>
+      <% else %>
+        <%= form_for(current_user.like_decks.build,url: like_decks_path,method: :post )do |f| %>
+          <%= hidden_field_tag :deck_id, @deck.id %>
+        <%= f.submit 'お気に入り登録', class: 'btn btn-primary' %>
+        <% end %>
+      <% end %>
       <h3>画像</h3>
       <% if @deck.image.attached? %>
         <%= image_tag @deck.image.variant(resize:'500x500').processed %>

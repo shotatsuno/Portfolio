@@ -1,0 +1,18 @@
+
+<h1>ユーザー一覧</h1>
+  <div class="container" >
+    <% @users.each do |f| %>
+      <div class="row">
+        <div class="col-lg-4">
+          <% if f.image.attached? %>
+            <%= image_tag f.image.variant(resize:'100x100').processed %></br>
+          <% end %>
+            <%= f.user_name %> 
+        </div>
+        <div class="col-lg-8">
+            <%= f.introduction %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  

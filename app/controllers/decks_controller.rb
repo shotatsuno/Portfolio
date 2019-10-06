@@ -1,4 +1,7 @@
 class DecksController < ApplicationController
+  
+  before_action :authenticate_user!, except: [:index]
+  
   def new
     @deck = Deck.new
     @deck_themes = DeckTheme.all

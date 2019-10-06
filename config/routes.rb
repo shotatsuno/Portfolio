@@ -8,7 +8,14 @@ Rails.application.routes.draw do
     :sessions => 'users/sessions'
   }
   
-  resources :users, only: [:index, :show, :edit]
+  resources :users, only: [:index, :show, :edit] do
+    member do
+      patch 'edit_profile_image' => 'users#edit_profile_image'
+      patch 'edit_introduction' => 'users#edit_introduction'
+    end
+  end
+  
+  resources :like_decks, only: [:index, :create, :destroy]
   
   resources :admins, only: [:index, :new] 
   get 'add_deck_theme' => 'admins#add_deck_theme' 

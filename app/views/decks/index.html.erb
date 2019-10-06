@@ -1,4 +1,15 @@
 <h1>デッキ一覧</h1>
+<section class="work-section" id="work">
+  <header class="section-header clearfix">
+    <div class="inner">
+      <h2>Pick up Deck</h2>
+      <ul class="tabs-nav">
+        <li><%= link_to "お気に入り", like_decks</li>
+      </ul>
+    </div>
+  </header>
+  
+</section>
 
 <div class="container deck_index">
   <% @decks.each do |f| %>
