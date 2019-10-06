@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :like_decks, only: [:index, :create, :destroy]
+  
   resources :admins, only: [:index, :new] 
   get 'add_deck_theme' => 'admins#add_deck_theme' 
   get 'add_link_theme' => 'admins#add_link_theme'
