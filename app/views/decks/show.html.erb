@@ -18,25 +18,60 @@
         <% end %>
       <% end %>
     
-      <% if @deck.favorited_by?(current_user) %>
-        <li>
-          <%= link_to deck_favorites_path(@deck.id),method: :delete do %>
-            <i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
-          <%= @deck.favorites.count %>いいね
-          <% end %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to deck_favorites_path(@deck.id),method: :post do %>
-             <i class="glyphicon glyphicon-heart" aria-hidden="true"></i>
-          <%= @deck.favorites.count %>いいね
-          <% end %>
-        </li>
-      <% end %>
+
+      <%= render partial: 'favorites/like', locals: {deck: @deck} %>
+
+      
+      <h3>PV数</h3>
+     <%= @deck.impressionist_count %>
     
       <h3>画像</h3>
       <% if @deck.image.attached? %>
         <%= image_tag @deck.image.variant(resize:'500x500').processed %>
       <% end %>
+    
+      <h3>デッキの解説</h3>
+      <%= @deck.deck_detail %>
+    
+      <h3>コメント</h3>
+        <% if user_signed_in? %>
+          <%= form_for [@deck,@comment] do |f| %>    
+            <div class="row">
+              <div class="col-xs-12">
+                 <%= f.text_area :comment, row:'2', class: "form-controll",placeholder:"コメントをここに" %>
+              </div>
+            </div>
+          <%= f.submit "送信する", class: "btn btn-default mt-20 pull-right" %>
+          <% end %>
+        <% end %>
+          <div class="review-list bt style-2" id="reviews">
+            <div class="float-wrapper">
+              <h4 class="review-count"><%= @deck.comments.count %></h4>
+            </div>
+          </div>
+          <div class="row">
+            <table class="table table-borderd">
+              <thread>
+                <tr>
+                  <th class="col-xs-2">日時</th>
+                  <th class="col-xs-2">ユーザー</th>
+                  <th class="col-xs-7">レビュー</th>
+                  <th class="col-xs-1"></th>
+                </tr>
+              </thread>
+              <% @deck.comments.each do |comment| %>
+              <tbody>
+                <tr>
+                  <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
+                  <td><%= comment.user.user_name %></td>
+                  <td><%= comment.comment %></td>
+                  <% if comment.user_id == current_user.id %>
+                  <td><%= link_to "削除", deck_comment_path(comment.deck.id,comment.id),class: "btn btn-danger btn-sm", method: :delete, "data-comfirm" => "このレビューを削除しますか？" %></td>
+                  <% end %>
+                </tr>
+              </tbody>
+              <% end %>
+            </table>
+    </div>
     
   </div>

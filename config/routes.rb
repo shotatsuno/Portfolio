@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   
   resources :decks do
     resource :favorites, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
   get 'popular_deck' => 'decks#popular_deck'
   get 'trend_deck' => 'decks#trend_deck'

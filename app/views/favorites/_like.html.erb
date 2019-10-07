@@ -1,0 +1,17 @@
+<% if user_signed_in? %>
+      <% if deck.favorited_by?(current_user) %>
+        <li>
+          <%= link_to deck_favorites_path(deck.id),method: :delete, "data-disable-with"=> "送信中..." do %>
+             <i class="fa fa-heart" id="<%= deck.id %>"></i>
+          <%= deck.favorites.count %>いいね
+          <% end %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to deck_favorites_path(deck.id),method: :post,"data-disable-with"=> "送信中..." do %>
+             <i class="fa fa-heart" id="<%= deck.id %>"></i>
+          <%= deck.favorites.count %>いいね
+          <% end %>
+        </li>
+      <% end %>
+<% end %>

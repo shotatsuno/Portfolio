@@ -1,5 +1,5 @@
 class DecksController < ApplicationController
-  
+
   before_action :authenticate_user!, except: [:index]
   
   def new
@@ -21,7 +21,11 @@ class DecksController < ApplicationController
   def show
     @deck = Deck.find(params[:id])
     @user = @deck.user
-    
+    @comment = Comment.new
+
+    impressionist(@deck, nil, :unique => [:session_hash])
+  #  @decks=@deck.impressionist_count
+
   end
   
   

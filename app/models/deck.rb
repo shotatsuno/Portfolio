@@ -1,7 +1,12 @@
 class Deck < ApplicationRecord
+  
+  is_impressionable counter_cache: true
+  
   belongs_to :user
   belongs_to :link_theme
   belongs_to :deck_theme
+
+  has_many :comments
   
   #いいね
   has_many :favorites, dependent: :destroy
