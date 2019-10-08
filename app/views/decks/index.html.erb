@@ -1,47 +1,69 @@
-<h1>デッキ一覧</h1>
-<section class="work-section" id="work">
-  <header class="section-header clearfix">
-    <div class="inner">
-      <h2>Pick up Deck</h2>
-      <ul class="tabs-nav">
-        <li><a><%= link_to "お気に入り", like_decks_path %></a></li>
-        <li><a><%= link_to "人気デッキ", popular_deck_path %></a></li>
-        <li><a><%= link_to "注目デッキ", trend_deck_path %></a></li>
-      </ul>
-    </div>
-  </header>  
-</section>
+<div class="container-fluid">
+  <div class="row">
+    <div class="deck_index" >
+      <%= image_tag('MakeDecker.jpg', class:"make_decker") %>
+      <section class="work-section" id="work">
+        <header class="section-header clearfix">
+          <div class="inner">
+              <ul class="tabs-nav pick_deck">
+                  <div><li><a><%= link_to "デッキ一覧", root_path %></a></li></div>
+                  <div><li><a><%= link_to "お気に入り", like_decks_path %></a></li></div>
+                  <div><li><a><%= link_to "人気デッキ", popular_deck_path %></a></li></div>
+                  <div><li><a><%= link_to "注目デッキ", trend_deck_path %></a></li></div>
+              </ul>
+          </div>
+        </header>  
+      </section>
 
-<div class="container deck_index">
-  <% @decks.each do |f| %>
-    <h3><%= link_to f.deck_name ,deck_path(f.id) %></h3>
-      <table border="1">
-        <tbody>
-          <tr>
-            <td class="deck_image" rowspan="2">
-              <% if f.image.attached? %>
-                <%= image_tag f.image.variant(resize:'200x200').processed %>
-              <% end %>
-            </td>
-          
-            <th id="post_user"> 投稿者</th>
-            <td colspan="2">
-              <small>
-                <%= f.user.user_name %>
-              </small>
-            </td>
-          </tr>
-          <tr>
-            <th>投稿日</th>
-            <td colspan="2"><%=f.created_at %></td>
-          </tr>
-          <tr>
-            <td id="comment" colspan="3">
-              <strong>コメント</strong></br>
-              <small><%= f.deck_detail %></small>
-            </td>
-          </tr>
+
+    <div class="deck_table">
+      <% @decks.each do |f| %>
+        <h3 class="deck-name"><%= link_to f.deck_name ,deck_path(f.id) %></h3>
+          <table class="deck_main" border="1">
+            <tbody>
+              <tr>
+                <td class="deck_image" rowspan="4">
+                  <% if f.image.attached? %>
+                    <%= image_tag f.image.variant(resize:'400x400').processed %>
+                  <% end %>
+                </td>
+                
+              <th class="table2">デッキテーマ</th>
+                <td class="table3" colspan="2">
+                  <%= f.deck_theme.deck_theme %>
+                </td>
+              </tr>
+              
+              <tr>
+               <th class="table2">リンクテーマ</th>
+                <td class="table3" colspan="2">
+                  <%= f.link_theme.link_theme %>
+                </td>
+              </tr>
+              
+              <tr>
+              <th class="table2"> 投稿者</th>
+                <td class="table3" colspan="2">
+                  <small>
+                    <%= f.user.user_name %>
+                  </small>
+                </td>
+              </tr>
+              
+              <tr>
+                <th class="table2">投稿日</th>
+                  <td class="table3" colspan="2"><%=f.created_at %></td>
+              </tr>
+              <tr>
+                <td id="comment" class="table3" colspan="3">
+                  <strong>コメント</strong></br>
+                  <small><%= f.deck_detail %></small>
+                </td>
+              </tr>
           </tbody>
-      </table>
-          <% end %>
+        </table>
+                <% end %>
+    </div>
+</div>
+</div>
 </div>
