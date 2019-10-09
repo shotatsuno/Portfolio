@@ -3,6 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+clearfix::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
 /*indexのCSS*/
 .deck_index{
   margin: 0 auto;
@@ -39,6 +45,7 @@
 
 .deck_main{
   margin: 0 auto;
+  margin-bottom: 30px;
 }
 
 .table2{
@@ -59,6 +66,45 @@
 
 /*showのCSS*/
 
+
+.deck-show{
+  font-size: 1.6em;
+}
+
+.deck-detail-image{
+  width: 328px;
+}
+
+.deck-detail-table{
+  margin: 0 auto;
+}
+
+.deck-show-box{
+  margin: 0 auto;
+}
+
+.deck-name-show{
+  margin-right: 20px;
+  font-size: 40px;
+  font-family: 'Bitter', serif;
+}
+
+.like-good{
+  margin-bottom: 10px;
+}
+.like-show{
+  float: left;
+  margin-right: 20px;
+}
+
+.good-show{
+  float: left;
+  list-style: none;
+}
+
+.btn-lg{
+  width: 150px;
+}
 
 
 /*タブのCSS*/

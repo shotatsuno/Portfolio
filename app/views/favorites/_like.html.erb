@@ -3,7 +3,7 @@
         <li>
           <%= link_to deck_favorites_path(deck.id),method: :delete, "data-disable-with"=> "送信中..." do %>
              <i class="fa fa-heart" id="<%= deck.id %>"></i>
-          <%= deck.favorites.count %>いいね
+         いいね <%= deck.favorites.count %>
           <% end %>
         </li>
       <% else %>

@@ -1,7 +1,9 @@
-<h1>マイページ</h1>
-<div class="container">
-<div class="row">
-    <div class="col-lg-4">
+<div class="container-fluid edit-mypage">
+  
+  <div class="mypage-up">
+    <div class="row">
+       <h1 class="col-4 offset-2">マイページ</h1><div class="col-6"></div>
+    <div class="col-4 offset-2">
   <% if @user.image.attached? %>
       <%= image_tag @user.image.variant(resize:'100x100').processed %>
   <% end %>
@@ -10,7 +12,7 @@
     <%= form_with model: @profile_image, url:edit_profile_image_user_path(current_user.id),method: :patch,local: true do |f| %>
     <div class = "form-group">
       <h3>画像をアップロード</h3>
-      <%= f.file_field :image %>
+      <%= f.file_field :image %></br>
       <%= f.submit "確定" %>
     </div>
     <% end %>
@@ -19,8 +21,8 @@
     </div>
     </div>
     
-  <div class="col-lg-8">
-  <div class = "form-group">
+  <div class="col-6">
+  <div class = "profile form-group">
   <h3>プロフィール</h3>
     <%= @user.introduction %></br>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
@@ -28,7 +30,7 @@
     </button>
   </div>
   </div>
-</div>
+
       <!-- モーダルの設定 -->
       <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -51,33 +53,52 @@
           </div>
         </div>
        </div>
+  </div>
+</div>
 
   <div class = "form-group">
-    <h3>投稿レシピ一覧</h3>
+    <div class="row">
+      <h3 class="col-4 offset-2">投稿レシピ一覧</h3>
       <% @decks.each do |f| %>
-        <table border="1">
+        <table class="mypage-decks col-7 offset-2" border="1">
         <tbody>
           <tr>
-            <td class="deck_image" rowspan="2">
+            <td class="deck_image" rowspan="4">
               <% if f.image.attached? %>
                 <%= image_tag f.image.variant(resize:'200x200').processed %>
               <% end %>
             </td>
           
-            <th id="post_user"> デッキ名</th>
-            <td colspan="2">
+            <th class="table2"> デッキ名</th>
+            <td class="table3" colspan="2">
               <small>
                 <%= link_to f.deck_name, deck_path(f.id) %>
               </small>
             </td>
           </tr>
+          
           <tr>
-            <th>コメント</th>
-            <td colspan="2"><%=f.deck_detail %></td>
+            <th class="table2">デッキテーマ</th>
+              <td class="table3" colspan="2">
+                <%= f.deck_theme.deck_theme %>
+              </td>
+          </tr>
+          
+          <tr>
+            <th class="table2">リンクステーマ</th>
+              <td class="table3" colspan="2">
+                <%= f.link_theme.link_theme %>
+              </td>
+          </tr>
+      
+          <tr>
+            <th class="table2">コメント</th>
+            <td class="table3" colspan="2"><%=f.deck_detail %></td>
           </tr>
           </tbody>
         <% end %>
       </table>
+    </div>
   </div>
       
 </div>
