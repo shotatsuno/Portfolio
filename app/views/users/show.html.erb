@@ -1,0 +1,81 @@
+<div class="container-fluid edit-mypage">
+  <div class="row">
+    <div class="mypage-up">
+      <div class=" user-show row">
+        <div class="col-5 offset-1 ">
+          <%= attachment_image_tag @user, :profile_image, :fill,120,120,fallback:'no_image.jpg' %>
+          <div class = "form-group">
+            <h3><%= @user.user_name %></h3>
+            <div class="follower-num">フォロワー数  <%=@user.followers.count%></div>
+            <div id="follow-show"><%= render 'users/follow_button', user: @user %></div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class = "profile form-group">
+            <h3>プロフィール</h3>
+            <%= @user.introduction %></br>
+          </div>
+        </div>
+    </div>
+
+
+        <div class = "form-group">
+          <div class="row">
+            <h3 class="col-5 offset-1">投稿レシピ一覧</h3><div class="col-6"></div>
+            <% @decks.each do |f| %>
+              <table class="mypage-decks col-10 offset-1" border="1">
+              <tbody>
+                <tr>
+                  <td class="deck_image" rowspan="4">
+                    <% if f.image.attached? %>
+                      <%= image_tag f.image.variant(resize:'300x300').processed %>
+                    <% end %>
+                  </td>
+
+                  <th class="table2"> デッキ名</th>
+                  <td class="table3" colspan="2">
+                    <small>
+                      <%= link_to f.deck_name, deck_path(f.id) %>
+                    </small>
+                  </td>
+                </tr>
+
+                <tr>
+                  <th class="table2">デッキテーマ</th>
+                    <td class="table3" colspan="2">
+                      <%= f.deck_theme.deck_theme %>
+                    </td>
+                </tr>
+
+                <tr>
+                  <th class="table2">リンクステーマ</th>
+                    <td class="table3" colspan="2">
+                      <%= f.link_theme.link_theme %>
+                    </td>
+                </tr>
+
+                <tr>
+                  <th class="table2">コメント</th>
+                  <td class="table3" colspan="2"><%=f.deck_detail %></td>
+                </tr>
+                </tbody>
+              <% end %>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+

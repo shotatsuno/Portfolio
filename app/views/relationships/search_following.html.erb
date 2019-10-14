@@ -2,7 +2,7 @@
   <div class="row clearfix">
     <div class="user-image-index">
       <div class="row">
-         <h1 class="col-11 offset-1">ユーザー一覧</h1>
+         <h1 class="col-11 offset-1">フォローしてるユーザー</h1>
       </div>
         <!--検索フォーム-->
       <div class="row">
@@ -10,19 +10,15 @@
         <div class="col-1"></div>
       </div>
       <div class="row">
-          <%= form_with url:search_user_path, method: :get, local:true,class:"user-search-box col-10 offset-1" do |search| %>
+          <%= form_with url:search_following_path, method: :get, local:true,class:"user-search-box col-10 offset-1" do |search| %>
             <%= text_field_tag :search %>
             <%= search.submit '検索'%>
           <% end %>
       <div class="col-1"></div>
       </div>
           
-          <% i= 1 %>
           <% @users.each do |f| %>
             <div class="form-group">
-                <div class="row">
-                  <div class="rank col-11 offset-1">第<%= i %>位</div>
-                </div>
                  <div class="row">
                    <div class="col-3 offset-1">
                      <%= link_to user_path(f.id) do %>
@@ -36,7 +32,6 @@
                     </div>
                     <div class="col-1"></div>
                   </div>
-          <% i+=1 %>
     </div>
       <% end %>
       </div>

@@ -21,4 +21,9 @@ class Deck < ApplicationRecord
   has_many :like_decks, foreign_key: 'deck_id', dependent: :destroy
   has_many :users, through: :like_decks
   
+  #検索機能
+  def self.search(search)
+    return Deck.all unless search
+    Deck.where(['deck_name LIKE ?',"%#{search}%"])
+  end
 end

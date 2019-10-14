@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://kit.fontawesome.com/04fdb0501d.js" crossorigin="anonymous"></script>
     <title>MakeDecker</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -17,6 +18,7 @@
         <li><a href="#"><%= link_to "マイページ",edit_user_path(current_user.id) %></a></li>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, notice: "ログアウトしました。" %></a></li>
         <li><a href="#"><%= link_to "デッキ投稿",new_deck_path %></a></li>
+        <li><a><%= link_to "フォローしてるデュエリスト", relationships_path %></a></li>
         <% else %>
         <li><a href="#"><%= link_to "ログイン", new_user_session_path %></a></li>
         <li><a href="#"><%= link_to "新規登録", new_user_registration_path %></a></li>
@@ -55,5 +57,10 @@
 
           
     <%= yield %>
+<% if flash[:notice]%>
+          <div class="flash">
+                <%= flash[:notice]%> 
+          </div>
+<%end%>
   </body>
 </html>

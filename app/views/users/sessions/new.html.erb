@@ -1,26 +1,42 @@
-<h2>Log in</h2>
+<div class="log-in">
+    <div class="container login-con">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="form-title-login text-center">
+        <h2 class="login-title-1">デュエルリンクス </h2>
+        <h2 class="login-title-2">Make Decker</h2>
+      </div>
+      <div class="form-body-login">
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-group">
+          <div class="login-email-field">
+            <span>メールアドレス</span>
+            <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"メールアドレス" %>
+          </div>
+          
+          <div class="login-password-field">
+            <span>パスワード</span>
+            <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"パスワード" %>
+          </div>
+
+          <% if devise_mapping.rememberable? %>
+          <div class="login-check-box-field">
+            <%= f.check_box :remember_me %>ログイン情報を保持する
+          </div>
+          <% end %>
+
+        <div class="login-actions">
+          <%= f.submit "ログイン", class:"btn-lg btn-primary login-bt" %></br>
+          <%= link_to "新規登録", new_user_registration_path, class:"btn-lg btn-success sign-up-bt" %>
+        </div>
+        </div>
+        <% end %>
+        
+        <div class="login-links">
+          <%= render "devise/shared/links" %>
+        </div>
+
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

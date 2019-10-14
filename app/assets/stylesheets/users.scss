@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/*edit*/
+
 .mypage-up{
   margin: 0 auto;
 }
@@ -11,7 +13,7 @@
 }
 
 .mypage-decks{
-  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
 .deck_image{
@@ -19,13 +21,75 @@
 }
 
 .table2{
-  width: 150px;
+  width: 200px;
 }
 
 .table3{
-  width: 50px;
+  width: 100px;
 }
 
 .edit-mypage{
   font-size: 1.6em;
 }
+
+.no-image-edit{
+  width: 100px;
+  height: 100px;
+  border: solid 2px gray;
+}
+
+/*index*/
+
+.user-index{
+  font-size: 1.6em;
+}
+.user-image-index{
+  margin-bottom: 20px;
+}
+
+.rank{
+  font-size: 3.0em
+}
+
+.users-intro{
+  border: 2px solid gray;
+  padding: 3px;
+}
+
+.name-search{
+  text-align: right;
+}
+
+.name-search-h2{
+  margin-right: 45px;
+}
+
+.user-search-box{
+  text-align: right;
+}
+
+.users-image-index{
+  border-radius: 50%;
+}
+
+/*show*/
+
+.user-show{
+  margin-top: 20px;
+}
+
+.follower-btn{
+  float: left;
+  margin-right: 10px;
+}
+
+.btn-follow{
+  width: 100px;
+}
+
+.profile-image-show{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+

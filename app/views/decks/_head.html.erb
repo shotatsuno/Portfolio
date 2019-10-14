@@ -1,0 +1,37 @@
+
+
+      <section class="work-section" id="work">
+        <header class="section-header clearfix">
+          <div class="inner">
+              <ul class="tabs-nav pick_deck">
+                  <div><li><a><%= link_to "デッキ一覧", root_path %></a></li></div>
+                  <div><li><a><%= link_to "お気に入り", like_decks_path %></a></li></div>
+                  <div><li><a><%= link_to "人気デッキ", popular_deck_path %></a></li></div>
+                  <div><li><a><%= link_to "注目デッキ", trend_deck_path %></a></li></div>
+              </ul>
+          </div>
+        </header>  
+      </section>
+      
+      <div class="search-for-theme clearfix">
+        <div class="theme-search"><h2>テーマで検索</h2></div>
+          <div class="deck_theme clearfix">
+            <%= form_with  url:decks_path,method: :get,local:true do |form| %>
+              <%= select_tag 'deck_theme', options_from_collection_for_select(deck_themes, :id, :deck_theme ),include_blank: "デッキテーマ" %>
+          </div>
+      
+        <div class="link_theme ">
+          <%= select_tag 'link_theme', options_from_collection_for_select(link_themes, :id, :link_theme ),include_blank: "リンクステーマ" %>
+            <%= form.submit '検索',class:'btn-primary select-search'%>
+          <% end %>
+        </div>
+      </div>
+      
+      
+      <div class="search clearfix">
+        <div class="name-search"><h2>デッキ名で検索</h2></div>
+          <%= form_with url:search_path, method: :get, local:true do |search| %>
+            <%= text_field_tag :search %>
+          <%= search.submit '検索' %>
+          <% end %>
+      </div>

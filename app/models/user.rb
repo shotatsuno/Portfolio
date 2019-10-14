@@ -13,6 +13,7 @@ class User < ApplicationRecord
   
   
   #画像
+  attachment :profile_image
   has_one_attached :image
   
   #お気に入り機能
@@ -21,7 +22,7 @@ class User < ApplicationRecord
   
   #フォロワー機能
   has_many :relationships
-  has_many :following, through: :relationships, source: :follow
+  has_many :followings, through: :relationships, source: :follow
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
   has_many :followers, through: :reverse_of_relationships, source: :user
   
@@ -57,6 +58,18 @@ class User < ApplicationRecord
   #お気に入り判定
   def likedeck?(deck)
     self.likedecks.include?(deck)
+  end
+  
+  #検索機能
+   def self.search_user(search)
+    return User.all unless search
+    User.where(['user_name LIKE ?',"%#{search}%"])
+   end
+  
+    #検索機能
+  def self.search_following(search)
+    return current_user.followings.all unless search
+    current_user.followings.where(['user_name LIKE ?',"%#{search}%"])
   end
   
   

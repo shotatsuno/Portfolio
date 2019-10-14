@@ -15,8 +15,8 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :like_decks, only: [:index, :create, :destroy] 
-    
+  resources :like_decks, only: [:index, :create] 
+  resources :relationships, only: [:create, :destroy, :index]
   
   resources :admins, only: [:index, :new] 
   get 'add_deck_theme' => 'admins#add_deck_theme' 
@@ -26,12 +26,17 @@ Rails.application.routes.draw do
   
   resources :decks do
     resource :favorites, only: [:create, :destroy]
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy,:new]
   end
+  
+  get 'search' => 'decks#search'
+  get 'search_user' => 'users#search_user'
+  get 'search_following' => 'relationships#search_following'
   get 'popular_deck' => 'decks#popular_deck'
   get 'trend_deck' => 'decks#trend_deck'
   
   get 'how_to_upload' => 'extra#how_to_upload'
+  get 'how_to_url_upload' => 'extra#how_to_url_upload'
   
   root 'decks#index'
 

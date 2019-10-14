@@ -1,4 +1,10 @@
 class CommentsController < ApplicationController
+  
+  def new
+    @deck=Deck.find(params[:deck_id])
+    @comment = Comment.new
+  end
+  
   def create
     deck = Deck.find(params[:deck_id])
     comment = current_user.comments.new(comment_params)

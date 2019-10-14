@@ -16,12 +16,11 @@ clearfix::after{
 }
 
 .make_decker{
-  max-width: 960px;
+  margin: 0 auto;
   height: auto;
 }
 
 #comment{
-  width: 960px;
   background-color: aquamarine;
 }
 
@@ -44,13 +43,14 @@ clearfix::after{
 }
 
 .deck_main{
-  margin: 0 auto;
+  width: 100%;
   margin-bottom: 30px;
 }
 
 .table2{
   background-color: aqua;
   padding: 4px;
+  width: 100px;
 }
 
 .table3{
@@ -61,18 +61,58 @@ clearfix::after{
   font-family: 'Bitter', serif;
   border-bottom: 1px solid #cccccc;
   font-size: 30px;
+  clear: both;
+}
 
+.search-for-theme{
+  float: left;
+  margin-bottom: 20px;
+}
+
+.theme-search{
+  margin-top: 10px;
+}
+
+.deck_theme{
+ float: left;
+  margin-right: 10px;
+}
+
+.link_theme{
+  float: left;
+}
+
+.search{
+  margin-left: 30px;
+  float: left;
+}
+
+.name-search{
+  margin-top: 10px;
+}
+
+.select-search{
+  margin-left: 10px;
+  padding: 0 10px;
 }
 
 /*showのCSS*/
 
 
 .deck-show{
-  font-size: 1.6em;
+  font-size: 2.0em;
+}
+
+.blue-name{
+  margin: 0 auto;
 }
 
 .deck-detail-image{
   width: 328px;
+}
+
+.deck_detail_main{
+  width: 100%;
 }
 
 .deck-detail-table{
@@ -97,7 +137,7 @@ clearfix::after{
   margin-right: 20px;
 }
 
-.good-show{
+#good-show{
   float: left;
   list-style: none;
 }
@@ -105,6 +145,25 @@ clearfix::after{
 .btn-lg{
   width: 150px;
 }
+
+.comment-h{
+  background-color: deeppink;
+  color: white;
+  margin-top: 20px;
+  padding: 10px 0;
+}
+
+
+.i{
+  width: 80%;
+  float: left;
+}
+
+.commenr-wrapper{
+  border-bottom: 1px solid gray;
+  margin-bottom: 10px;
+}
+
 
 
 /*タブのCSS*/
@@ -144,12 +203,97 @@ clearfix::after{
   color: rgb(255,255,255);
 }
 
+/*new*/
+.post_deck{
+  font-size: 1.6em;
+}
 
+.post-deck-name{
+  width: 100%;
+  background-color: darkorchid;
+  text-align: left;
+  color: white;
+  padding-left: 10px;
+  font-size: 1.4em;
+}
 
+.post-deck-name-box{
+  width: 100%;
+}
 
+.post-deck-theme{
+  width: 100%;
+  background-color: darkorchid;
+  text-align: left;
+  color: white;
+  padding-left: 10px;
+  font-size: 1.4em;
+}
 
+#deck_deck_theme_id{
+  width: 100%;
+}
 
+.post-links-theme{
+  width: 100%;
+  background-color: darkorchid;
+  text-align: left;
+  color: white;
+  padding-left: 10px;
+  font-size: 1.4em;
+}
 
+#deck_link_theme_id{
+  width: 100%;
+}
+
+.post-deck-image{
+  width: 100%;
+  background-color: darkorchid;
+  text-align: left;
+  color: white;
+  padding-left: 10px;
+  font-size: 1.4em;
+}
+
+.select-deck-image{
+  width: 100%;
+}
+
+.upload-deck-url{
+  width: 100%;
+  background-color: darkorchid;
+  text-align: left;
+  color: white;
+  padding-left: 10px;
+  font-size: 1.4em;
+}
+
+.upload-deck-url-field{
+  width: 100%;
+}
+
+.post-detail-of-deck{  
+  width: 100%;
+  background-color: darkorchid;
+  text-align: left;
+  color: white;
+  padding-left: 10px;
+  font-size: 1.4em;
+}
+
+.deck-detail-btn{
+  text-align: left;
+}
+
+.setting-deck-status{
+  width: 100%;
+  background-color: darkorchid;
+  text-align: left;
+  color: white;
+  padding-left: 10px;
+  font-size: 1.4em;
+}
 
 
 

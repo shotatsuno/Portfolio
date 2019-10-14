@@ -1,22 +1,10 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="deck_index" >
-      <%= image_tag('MakeDecker.jpg', class:"make_decker") %>
-      <section class="work-section" id="work">
-        <header class="section-header clearfix">
-          <div class="inner">
-              <ul class="tabs-nav pick_deck">
-                  <div><li><a><%= link_to "デッキ一覧", root_path %></a></li></div>
-                  <div><li><a><%= link_to "お気に入り", like_decks_path %></a></li></div>
-                  <div><li><a><%= link_to "人気デッキ", popular_deck_path %></a></li></div>
-                  <div><li><a><%= link_to "注目デッキ", trend_deck_path %></a></li></div>
-              </ul>
-          </div>
-        </header>  
-      </section>
+    <%= image_tag('MakeDecker.jpg', class:"make_decker col-10 offset-1") %>
+    <div class="deck_index col-10 offset-1" >
+      <%= render 'decks/head', deck_themes: @deck_themes,link_themes: @link_themes %>
       
-
-
+   
     <div class="deck_table">
       <% @decks.each do |f| %>
         <h3 class="deck-name"><%= link_to f.deck_name ,deck_path(f.id) %></h3>

@@ -1,36 +1,49 @@
 <div class='container post_deck'>
-  <h1>デッキレシピを投稿しよう！</h1>
+  <div class="row">
+  <h1 class="col-12">デッキレシピを投稿しよう！</h1>
+    <div class="new-deck-form col-12">
     <%= form_with model: @deck, local: true do |f| %>
   
-    <div class = "form-group">
-      <%= f.label :deck_name, 'デッキ名を入力（必須）'%></br>
-      <%= f.text_field :deck_name %></br>
+    <div class = "form-group col-8 offset-2 post-1">
+      <%= f.label :deck_name, 'デッキ名を入力（必須）',class:"post-deck-name"%></br>
+      <%= f.text_field :deck_name, class:"post-deck-name-box" %></br>
     </div>
-
-    <div class = "form-group">
-      <h3>どんなデッキ？</h3>
+   
+  
+    <div class = "form-group col-8 offset-2 post-1 ">
+      <h3 class="post-deck-theme">どんなデッキ？</h3>
       <%= f.collection_select :deck_theme_id, @deck_themes, :id, :deck_theme, include_blank: 'デッキテーマ' %>
     </div>
 
-    <div class = "form-group">
-      <h3>リンクステーマ</h3>
+    <div class = "form-group col-8 offset-2 post-1 ">
+      <h3 class="post-links-theme">リンクステーマ</h3>
       <%= f.collection_select :link_theme_id, @link_themes, :id, :link_theme, include_blank: 'リンクステーマ' %>
     </div>
   
-    <div class = "form-group">
-      <h2>画像をアップロード</h2>
-      <%= f.file_field :image %>
+    <div class = "form-group col-8 offset-2 post-1">
+      <h2 class="post-deck-image">画像をアップロード</h2>
+      <%= f.file_field :image,class:"select-deck-iamge" %>
     </div>
-
-    <div class = "form-group">
+  
+    <div class = "form-group col-12">
       <%= link_to "画像のアップロード方法", how_to_upload_path %>
     </div>
+  
+    <div class = "form-group col-8 offset-2 post-1">
+      <h2 class="upload-deck-url">デッキのURLをアップロード</h2>
+      <%= f.text_field :url, class:"upload-deck-url-field" %>
+    </div>
+  
+    <div class = "form-group col-12">
+      <%= link_to "URLのアップロード方法", how_to_url_upload_path %>
+    </div>
 
-    <div class = "form-group">
-      <span>デッキの説明</span>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    <div class = "form-group col-8 offset-2 post-1">
+      <h2 class="post-detail-of-deck">デッキの説明</h2>
+      <p>デッキの特徴を入力しよう！</p>
+        <button type="button" class="btn btn-primary deck-detail-btn" data-toggle="modal" data-target="#exampleModalCenter">
         入力
-      </button>
+        </button>
     </div>
 
 <!-- モーダルの設定 -->
@@ -54,17 +67,19 @@
       </div>
 
 
-    <div class = "form-group">
+    <div class = "form-group col-8 offset-2 post-1">
+      <h2 class="setting-deck-status">デッキの公開</h2>
+      <p>*チェックを入れるとあなたのデッキを他のユーザーが見ることができます。</p>
       <%= f.check_box :deck_status %><span>公開</span>
     </div>
 
 
       
-    <%= f.submit "確定" %>
+    <%= f.submit "投稿する",class:"btn btn-primary" %>
   
   <% end %>
-  
+  </div>
    
-  
+  </div>
 
 </div>

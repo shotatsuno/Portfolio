@@ -1,8 +1,9 @@
 
   <div class="container-fluid deck-show">
     <div class="row">
-      <div class="deck-show-box">
-        <%= image_tag('blue0002.png', class:"blue-name") %>  <h3>PV数  <%= @deck.impressionist_count %></h3>
+      <%= image_tag('blue0002.png', class:"blue-name col-10 col-offset-2") %> 
+      <div class="deck-show-box col-10 col-offset-1">
+         <h3>PV数  <%= @deck.impressionist_count %></h3>
           <div class="name-like-good clearfix">
             <h2 class="deck-name-show"><%= @deck.deck_name %></h2>
               <div class="like-good clearfix">
@@ -18,8 +19,8 @@
               <% end %>
               <% end %>
             </div>
-            <div class="good-show">
-              <%= render partial: 'favorites/like', locals: {deck: @deck} %>
+            <div id="good-show">
+              <%= render 'favorites/like', deck: @deck %>
             </div>
             </div>
           </div>
@@ -36,37 +37,37 @@
                   <% end %>
                 </td>
                 
-                <th>投稿者名</th>
+                <th class="table2">投稿者名</th>
                   <td class="table3" colspan="2">
-                   <%= @deck.user.user_name %>
+                   <%=link_to @deck.user.user_name, user_path(@deck.user.id) %>
                   </td>
               </tr>
               
               <tr>
-                <th>デッキテーマ</th>
+                <th class="table2">デッキテーマ</th>
                   <td class="table3" colspan="2">
                    <%= @deck.deck_theme.deck_theme %>
                   </td>
               </tr>
               
               <tr>
-                <th>リンクステーマ</th>
+                <th class="table2">リンクステーマ</th>
                   <td class="table3" colspan="2">
                     <%= @deck.link_theme.link_theme %>
                   </td>
               </tr>
               
               <tr>
-                <th>投稿日</th>
+                <th class="table2">投稿日</th>
                   <td class="table3" colspan="2">
                     <%= @deck.created_at %>
                   </td>
               </tr>
               
               <tr>
-                <th>URL</th>
+                <th class="table2">URL</th>
                   <td class="table3" colspan="2">
-                    URL
+                    <%=link_to 'このデッキをコピー', @deck.url %>
                   </td>
               </tr>
               <tr>
@@ -81,44 +82,28 @@
 
       
 
-      <h3>コメント</h3>
-        <% if user_signed_in? %>
-          <%= form_for [@deck,@comment] do |f| %>    
-    
-                 <%= f.text_area :comment, row:'2', class: "form-controll",placeholder:"コメントをここに" %>
-         
-          <%= f.submit "送信する", class: "btn btn-default mt-20 pull-right" %>
-          <% end %>
-        <% end %>
+      <h2 class="comment-h">コメント</h2>
+      <% if user_signed_in? %>
+        <%= link_to "", new_deck_comment_path(@deck), class:"far fa-edit" %>
+      <% end %>
 
-          <div class="review-list bt style-2" id="reviews">
-            <div class="float-wrapper">
-              <h4 class="review-count"><%= @deck.comments.count %></h4>
+      <div class="review-list">
+           <% i=1 %>
+           <% @deck.comments.each do |comment| %>
+           <div class="commenr-wrapper">
+             <div class="i"><%= i %>.名無しのデュエリスト</div>
+             <div class="comment-day"><%= comment.created_at.strftime('%Y/%m/%d') %></br></div>
+             <div class="comment-box"><%= comment.comment %></div>
+             <div class="comment-delete">
+             <% if comment.user_id == current_user.id %>
+                <%= link_to "削除", deck_comment_path(comment.deck.id,comment.id),class: "btn btn-danger btn-sm", method: :delete, "data-comfirm" => "このレビューを削除しますか？" %>
+             <% end %>
+             </div>
+             <% i+=1 %>
             </div>
-          </div>
-    
-            <table class="table table-borderd">
-              <thread>
-                <tr>
-                  <th class="col-xs-2">日時</th>
-                  <th class="col-xs-2">ユーザー</th>
-                  <th class="col-xs-7">レビュー</th>
-                  <th class="col-xs-1"></th>
-                </tr>
-              </thread>
-              <% @deck.comments.each do |comment| %>
-              <tbody>
-                <tr>
-                  <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
-                  <td><%= comment.user.user_name %></td>
-                  <td><%= comment.comment %></td>
-                  <% if comment.user_id == current_user.id %>
-                  <td><%= link_to "削除", deck_comment_path(comment.deck.id,comment.id),class: "btn btn-danger btn-sm", method: :delete, "data-comfirm" => "このレビューを削除しますか？" %></td>
-                  <% end %>
-                </tr>
-              </tbody>
-              <% end %>
-</table>
-</div>
+          <% end %>
+        
 </div>
   </div>
+</div>
+</div>

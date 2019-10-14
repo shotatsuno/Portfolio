@@ -13,6 +13,12 @@ class UsersController < ApplicationController
     @decks = @user.decks.all
   end
   
+  def show
+    @user=User.find(params[:id])
+    @decks=@user.decks.all
+  end
+  
+  
   def edit_introduction
     new_profile = User.find(params[:id])
     
@@ -22,11 +28,17 @@ class UsersController < ApplicationController
   end
   
   def edit_profile_image
-    profile_image = User.find(params[:id])
+    user= User.find(params[:id])
     
-    if profile_image.update(image_params)
+    if user.update(image_params)
+       redirect_to edit_user_path(current_user.id)
+    else
        redirect_to edit_user_path(current_user.id)
     end
+  end
+  
+  def search_user
+    @search_users = User.search_user(params[:search])
   end
   
   private
@@ -36,7 +48,7 @@ class UsersController < ApplicationController
     end
   
     def image_params
-      params.require(:user).permit(:image)
+      params.require(:user).permit(:profile_image, :remove_profile_image)
     end
   
 end

@@ -1,0 +1,26 @@
+<div class="container-fluid comment-new">
+  <div class="row">
+    <div class="comment-new-little">
+      <h1 class="comment-h-new col-12">コメント</h1>
+        <div class="comment-form col-12">
+          <%= form_for [@deck,@comment] do |f| %>    
+            <%= f.text_area :comment, row:'2', class: "form-controll",size: "100x10",placeholder:"コメントをここに" %></br>
+            <%= f.submit "投稿する", class: "btn btn-primary mt-20 pull-right" %>
+          <% end %>
+        </div>
+  
+        <div class="comment-readme col-12">
+          <p>たくさんの人がコメント機能を利用しています。</p>
+          <p>皆様が楽しめるよう下記内容コメントは控えてください</p>
+          <ul class="readme-list">
+            <li>荒らし</li>
+            <li>悪口・暴言</li>
+            <li>卑猥な表現</li>
+            <li>個人情報</li>
+            <li>その他の不適切と判断される行為</li>
+          </ul>
+          <p>上記に該当するコメントを投稿した場合、利用を制限する可能性があります。</p>
+        </div>
+    </div>
+  </div>
+</div>
