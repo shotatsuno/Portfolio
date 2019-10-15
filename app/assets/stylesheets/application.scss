@@ -25,16 +25,45 @@
 
 html{
   font-size: 62.5%;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  min-width:  100vw;
 }
+
 
 body{
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
+  min-width:  100vw;
+  min-height: 100vh;
+  background-color: ivory;
 }
+
+/*画像*/
+
+.make-decker{
+  max-width:1000px;
+  margin: 0 auto;
+  height: auto;
+}
+
+.make-decker2{
+  max-width:1000px;
+  margin: 0 auto;
+  height: auto;
+}
+
+/*何故かここに書かないと反映されない*/
+
+.image-profile{
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.whole-user-deck{
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 
 /*ハンバーガーアイコン*/
 
@@ -128,8 +157,8 @@ body{
 
 .log-in{
   background-color: beige;
-  width: 100%;
-  height: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
   font-size: 2.0em;
 }
 
@@ -138,6 +167,20 @@ body{
   margin-bottom: 10px;
   font-family: "Yu Gothic";
   color: orange;
+}
+
+.form-group{
+  margin: 0 auto;
+}
+
+.form-control{
+  margin: 0 auto;
+}
+
+.login-field{
+  margin: 0 auto;
+  width: 500px;
+  padding-bottom: 10px;
 }
 
 .login-title-1{
@@ -152,54 +195,28 @@ body{
 }
 
 .form-body-login{
-  background-color: aliceblue;
   padding: 30px;
-  width: 500px;
+  background-color: aliceblue;
   margin: 0 auto;
-}
-
-.login-email-field{
-  margin: 0 auto;
-  width: 300px;
-}
-
-.login-password-field{
-  margin: 0 auto;
-  width: 300px;
-}
-
-.login-check-box-field{
-  margin: 0 auto;
-  width: 300px;
-}
-
-.login-bt{
-  width: 300px;
-}
-
-.sign-up-bt{
-  width: 300px;
 }
 
 .login-actions{
-  margin: 0 auto;
-  width: 300px;
   padding-top: 10px;
 }
 
 .login-links{
   margin: 0 auto;
-  width: 300px;
+  width: 500px;
 }
 
 
 input[type="email"] {
-        width: 300px;
+        width: 500px;
         height: 40px;
 }
 
 input[type="password"] {
-        width: 300px;
+        width: 500px;
         height: 40px;
 }
 

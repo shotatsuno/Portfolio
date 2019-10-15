@@ -11,17 +11,17 @@
            <%= render "devise/shared/error_messages", resource: resource %>
             <div class="form-group">
               
-              <div class="signup-user-name-field">
+              <div class="login-field">
                 <%= f.label :user_name, 'ユーザーネーム' %><br />
                 <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %>
               </div>
 
-              <div class="login-email-field">
+               <div class="login-field">
                 <span>メールアドレス</span>
                 <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"メールアドレス" %>
               </div>
 
-              <div class="login-password-field">
+               <div class="login-field">
                 <span>パスワード</span>
                 <% if @minimum_password_length %>
                   <em>(最低 <%= @minimum_password_length %>文字)</em>
@@ -29,18 +29,18 @@
                 <%= f.password_field :password, autocomplete: "new-password" %>
               </div>
 
-              <div class="new-password-field">
+               <div class="login-field">
                 <span>パスワードを再確認</span><br />
                 <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
               </div>
 
-              <div class="login-actions">
+              <div class="login-field">
                 <%= f.submit "Sign up",class:"btn-lg btn-success" %>
               </div>
           </div>
          <% end %>
           
-          <div class="login-links">
+           <div class="login-field">
             <%= render "users/shared/links" %>
           </div>
     </div>

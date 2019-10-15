@@ -30,6 +30,7 @@
           <li><a><%= link_to "管理者としてログインしています", edit_admin_registration_path %></a></li>
           <li><a><%= link_to "デッキテーマを追加", add_deck_theme_path %></a></li>
           <li><a><%= link_to "リンクステーマを追加", add_link_theme_path %></a></li>
+          <li><a><%= link_to "ユーザー一覧", admin_users_path %></a></li>
           <li><a><%= link_to "ログアウト", destroy_user_session_path, method: :delete, notice: "ログアウトしました。" %></a></li>
         </li>
        <% end %>

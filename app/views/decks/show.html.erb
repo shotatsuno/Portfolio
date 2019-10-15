@@ -1,8 +1,8 @@
 
   <div class="container-fluid deck-show">
-    <div class="row">
-      <%= image_tag('blue0002.png', class:"blue-name col-10 col-offset-2") %> 
-      <div class="deck-show-box col-10 col-offset-1">
+    <div class="row whole-deck-show">
+      <%= image_tag('blue0002.png', class:"blue-name col-8 offset-2") %> 
+      <div class="deck-show-box col-8 offset-2">
          <h3>PV数  <%= @deck.impressionist_count %></h3>
           <div class="name-like-good clearfix">
             <h2 class="deck-name-show"><%= @deck.deck_name %></h2>
@@ -20,7 +20,7 @@
               <% end %>
             </div>
             <div id="good-show">
-              <%= render 'favorites/like', deck: @deck %>
+              <%= render 'favorites/like', deck: @deck %> 
             </div>
             </div>
           </div>
@@ -33,7 +33,7 @@
               <tr>
                 <td class="deck-detail-image" rowspan="5">
                   <% if @deck.image.attached? %>
-                    <%= image_tag @deck.image.variant(resize:'500x500').processed %>
+                    <%= image_tag @deck.image.variant(resize:'250x250').processed %>
                   <% end %>
                 </td>
                 

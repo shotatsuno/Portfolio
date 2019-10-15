@@ -9,19 +9,34 @@ clearfix::after{
   clear: both;
 }
 
+.top-view{
+  background-color: ivory;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
 /*indexのCSS*/
+
+
 .deck_index{
   margin: 0 auto;
   font-size: 1.6em;
 }
 
-.make_decker{
+
+
+.deck-search-whole{
+  max-width: 720px;
   margin: 0 auto;
-  height: auto;
 }
 
 #comment{
   background-color: aquamarine;
+}
+
+#work.work-section{
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .post_deck{
@@ -43,14 +58,13 @@ clearfix::after{
 }
 
 .deck_main{
-  width: 100%;
+  margin: 0 auto;
   margin-bottom: 30px;
 }
 
 .table2{
   background-color: aqua;
   padding: 4px;
-  width: 100px;
 }
 
 .table3{
@@ -62,6 +76,8 @@ clearfix::after{
   border-bottom: 1px solid #cccccc;
   font-size: 30px;
   clear: both;
+  max-width: 770px;
+  margin: 0 auto;
 }
 
 .search-for-theme{
@@ -104,11 +120,7 @@ clearfix::after{
 }
 
 .blue-name{
-  margin: 0 auto;
-}
-
-.deck-detail-image{
-  width: 328px;
+  margin:0 auto;
 }
 
 .deck_detail_main{
@@ -117,6 +129,10 @@ clearfix::after{
 
 .deck-detail-table{
   margin: 0 auto;
+}
+
+.deck-detail-image{
+  width: 100px;
 }
 
 .deck-show-box{

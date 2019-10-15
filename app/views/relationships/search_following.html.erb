@@ -10,14 +10,14 @@
         <div class="col-1"></div>
       </div>
       <div class="row">
-          <%= form_with url:search_following_path, method: :get, local:true,class:"user-search-box col-10 offset-1" do |search| %>
+          <%= form_with url:admin_search_user_path, method: :get, local:true,class:"user-search-box col-10 offset-1" do |search| %>
             <%= text_field_tag :search %>
             <%= search.submit '検索'%>
           <% end %>
       <div class="col-1"></div>
       </div>
           
-          <% @users.each do |f| %>
+          <% @following_searchs.each do |f| %>
             <div class="form-group">
                  <div class="row">
                    <div class="col-3 offset-1">

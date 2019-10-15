@@ -67,9 +67,9 @@ class User < ApplicationRecord
    end
   
     #検索機能
-  def self.search_following(search)
-    return current_user.followings.all unless search
-    current_user.followings.where(['user_name LIKE ?',"%#{search}%"])
+  def search_following(search)
+    return self.followings.all unless search
+    self.followings.where(['user_name LIKE ?',"%#{search}%"])
   end
   
   

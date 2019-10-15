@@ -1,0 +1,29 @@
+<div class="container">
+
+	<div class="row">
+		<h1>ユーザー一覧(更新順)</h1>
+	</div>
+
+	<div class="row">
+      <div class="name-search"><h2>ユーザー名で検索</h2></div>
+        <%= form_with url:admin_search_user_path, method: :get, local:true do |search| %>
+          <%= text_field_tag :search %>
+          <%= search.submit '検索' %>
+        <% end %>
+	</div>
+  
+   <div class="row">
+	<% @users.each do |user| %>
+	  <div class="col-6">
+		<table class="table table-bordered">
+			<tr>
+				<td><%= link_to user.user_name, admin_user_path(user.id) %><br>
+					<%= user.updated_at.to_s(:datetime) %>
+					<p class="text-success">最終更新</p>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<% end %>
+  </div>
+</div>

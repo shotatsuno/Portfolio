@@ -29,7 +29,8 @@ class RelationshipsController < ApplicationController
   end
   
   def search_following
-    @following_searchs = current_user.followings.search_following(params[:search])
+    @following_searchs = current_user.search_following(params[:search])
+#    binding.pry
   end
   
 

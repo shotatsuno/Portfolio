@@ -1,8 +1,7 @@
 <div class="container-fluid edit-mypage">
   <div class="row">
   <div class="mypage-up">
-    <div class="row">     <%= image_tag('MakeDecker2.jpg', class:"make-decker2 col-8 offset-2") %></div>
-    <div class="row image-profile">
+    <div class="row">
        <h1 class="col-5 offset-1">マイページ</h1><div class="col-6"></div>
           <div class="col-5 offset-1">
               <div  data-toggle="modal" data-target="#exampleModalCenter3">
@@ -30,13 +29,13 @@
 
 
       <div class = "form-group">
-        <div class="row whole-user-deck">
+        <div class="row">
           <h3 class="col-5 offset-1">投稿レシピ一覧</h3><div class="col-6"></div>
           <% @decks.each do |f| %>
             <table class="mypage-decks col-10 offset-1" border="1">
             <tbody>
               <tr>
-                <td class="deck_image" rowspan="3">
+                <td class="deck_image" rowspan="4">
                   <% if f.image.attached? %>
                     <%= image_tag f.image.variant(resize:'300x300').processed %>
                   <% end %>
@@ -65,10 +64,8 @@
               </tr>
 
               <tr>
-                <td id="comment" class="table3" colspan="3">
-                  <strong>コメント</strong></br>
-                  <small><%= f.deck_detail %></small>
-                </td>
+                <th class="table2">コメント</th>
+                <td class="table3" colspan="2"><%=f.deck_detail %></td>
               </tr>
               </tbody>
             <% end %>

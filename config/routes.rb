@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :like_decks, only: [:index, :create] 
+  resources :like_decks, only: [:index, :create, :destroy] 
   resources :relationships, only: [:create, :destroy, :index]
   
   resources :admins, only: [:index, :new] 
@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   get 'add_link_theme' => 'admins#add_link_theme'
   post 'register_deck_theme' => 'admins#register_deck_theme'
   post 'register_link_theme' => 'admins#register_link_theme'
+  
+  resources :admin_users, only: [:index, :show, :destroy]
+  get 'admin_search_user' => 'admin_users#admin_search_user'
   
   resources :decks do
     resource :favorites, only: [:create, :destroy]
