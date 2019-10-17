@@ -8,10 +8,14 @@ class RelationshipsController < ApplicationController
     @user = User.find(params[:follow_id])
     following = current_user.follow(@user)
     if following.save
+      @user.follower_num+=1
+      @user.save
       flash[:success] = 'ユーザーをフォローしました'
       render :follow
     else
       flash.now[:alert] = 'ユーザーのフォローに失敗しました'
+      @user.follower_num-=1
+      @user.save
       render :follow
     end
   end

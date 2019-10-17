@@ -15,11 +15,12 @@
       <h2>MENU</h2>
       <ul>
         <% if user_signed_in? %>
+        <li><a href="#"><%= link_to "TOP",root_path %></a></li>
         <li><a href="#"><%= link_to "マイページ",edit_user_path(current_user.id) %></a></li>
-        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, notice: "ログアウトしました。" %></a></li>
         <li><a href="#"><%= link_to "デッキ投稿",new_deck_path %></a></li>
         <li><a><%= link_to "フォローしてるデュエリスト", relationships_path %></a></li>
         <li><a href="#"><%= link_to "人気デュエリスト",users_path %></a></li>
+        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, notice: "ログアウトしました。" %></a></li>
         <li><a href="#"><%= link_to "ユーザー情報編集",edit_user_registration_path(current_user) %></a></li>
         <% else %>
         <li><a href="#"><%= link_to "ログイン", new_user_session_path %></a></li>

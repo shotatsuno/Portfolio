@@ -3,8 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   
   def index
-    @users = User.all
-    
+    @users = User.order('follower_num DESC')
   end
   
   def edit
