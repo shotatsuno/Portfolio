@@ -5,9 +5,23 @@
 
 .admin-new{
   font-size: 1.6em;
+  background-color: white;
+  padding-bottom: 100px;
+  margin-top: 30px;
 }
 
 .category-title{
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: cornflowerblue;
+  color: white;
+}
+
+.admin-user-edit{
+  background-color: cornflowerblue;
+  color: white;
+  padding: 5px;
   margin-bottom: 20px;
 }
 
@@ -15,6 +29,30 @@
   font-size: 1.6em;
 }
 
-.theme-add-form{
-  
+.tab-menu{
+  margin-top: 30px;
+}
+
+.add-theme-form{
+  margin-top: 30px;
+}
+
+
+.edit-mypage-admin{
+  margin-top: 150px;
+}
+
+/* デッキテーマの追加*/
+
+.add-deck-theme{
+  background-color: white;
+  padding-bottom: 100px;
+  margin-top: 30px;
+  font-size: 1.6em;
+}
+
+.add-deck-theme-h{
+  background-color: cornflowerblue;
+  color: white;
+  padding: 10px;
 }

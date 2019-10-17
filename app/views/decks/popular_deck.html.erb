@@ -1,13 +1,13 @@
-<div class="container-fluid">
+<div class="container-fluid whole-index">
   <div class="row top-view">
-    <%= image_tag('MakeDecker.jpg', class:"make_decker col-10 offset-1") %>
+    <%= image_tag('MakeDecker6.jpg', class:"make-decker col-10 offset-1") %>
     <div class="deck_index col-10 offset-1" >
       <%= render 'decks/head', deck_themes: @deck_themes,link_themes: @link_themes %>
       
       <div class="deck_table">
         <% i=1 %>
       <% @deck_favs.each do |f| %>
-        <h3 class="deck-name"><%= i %>位   <%= link_to f.deck_name ,deck_path(f.id) %></h3>
+        <h3 class="deck-name"><%= i %>位   <%= link_to f.deck_name ,deck_path(f.id),class:"link-color" %><span id="good">⭐️<%= f.favorite_num %></span></h3>
           <table class="deck_main" border="1">
             <tbody>
               <tr>

@@ -9,10 +9,13 @@ clearfix::after{
   clear: both;
 }
 
-.top-view{
-  background-color: ivory;
-  min-height: 100vh;
-  min-width: 100vw;
+#good{
+  margin-left: 30px;
+}
+
+.link-color{
+  color: white;
+  font-weight: bold;
 }
 
 /*indexのCSS*/
@@ -21,9 +24,11 @@ clearfix::after{
 .deck_index{
   margin: 0 auto;
   font-size: 1.6em;
+  background-image: image-url("siber2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attchment: fixed;
 }
-
-
 
 .deck-search-whole{
   max-width: 720px;
@@ -60,10 +65,11 @@ clearfix::after{
 .deck_main{
   margin: 0 auto;
   margin-bottom: 30px;
+  background-color: white;
 }
 
 .table2{
-  background-color: aqua;
+  background-color:antiquewhite;
   padding: 4px;
 }
 
@@ -78,6 +84,9 @@ clearfix::after{
   clear: both;
   max-width: 770px;
   margin: 0 auto;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
 }
 
 .search-for-theme{
@@ -87,6 +96,7 @@ clearfix::after{
 
 .theme-search{
   margin-top: 10px;
+  color: white;
 }
 
 .deck_theme{
@@ -105,6 +115,7 @@ clearfix::after{
 
 .name-search{
   margin-top: 10px;
+  color: white;
 }
 
 .select-search{
@@ -117,6 +128,12 @@ clearfix::after{
 
 .deck-show{
   font-size: 2.0em;
+  color: white;
+  font-weight: bold;
+}
+
+.make-decker4{
+  background-color: black;
 }
 
 .blue-name{
@@ -129,6 +146,8 @@ clearfix::after{
 
 .deck-detail-table{
   margin: 0 auto;
+  background-color: white;
+  color: black;
 }
 
 .deck-detail-image{
@@ -137,6 +156,7 @@ clearfix::after{
 
 .deck-show-box{
   margin: 0 auto;
+  background-color: black;
 }
 
 .deck-name-show{
@@ -190,12 +210,8 @@ clearfix::after{
   clear: both;
 }
 
-.deck_index{
-
-}
-
 .pick_deck{
-   font-size: 30px;
+   font-size: 1.6em;
 }
 
 .work-section .tabs-nav li {
@@ -222,14 +238,28 @@ clearfix::after{
 /*new*/
 .post_deck{
   font-size: 1.6em;
+  background-image: image-url("siber2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attchment: fixed;
+  color: white;
 }
 
-.post-deck-name{
+.notice{
+  background-color: red;
+  margin-bottom: 10px;
+}
+
+.new-deck-h{
+  margin-top: 30px;
+}
+
+.post-deck-label{
   width: 100%;
   background-color: darkorchid;
   text-align: left;
   color: white;
-  padding-left: 10px;
+  padding: 4px;
   font-size: 1.4em;
 }
 
@@ -237,80 +267,34 @@ clearfix::after{
   width: 100%;
 }
 
-.post-deck-theme{
-  width: 100%;
-  background-color: darkorchid;
-  text-align: left;
-  color: white;
-  padding-left: 10px;
-  font-size: 1.4em;
+.form-group-new-form{
+  margin-bottom: 10px;
 }
 
 #deck_deck_theme_id{
   width: 100%;
 }
 
-.post-links-theme{
-  width: 100%;
-  background-color: darkorchid;
-  text-align: left;
-  color: white;
-  padding-left: 10px;
-  font-size: 1.4em;
-}
-
 #deck_link_theme_id{
   width: 100%;
-}
-
-.post-deck-image{
-  width: 100%;
-  background-color: darkorchid;
-  text-align: left;
-  color: white;
-  padding-left: 10px;
-  font-size: 1.4em;
 }
 
 .select-deck-image{
   width: 100%;
 }
 
-.upload-deck-url{
-  width: 100%;
-  background-color: darkorchid;
-  text-align: left;
-  color: white;
-  padding-left: 10px;
-  font-size: 1.4em;
-}
-
 .upload-deck-url-field{
   width: 100%;
-}
-
-.post-detail-of-deck{  
-  width: 100%;
-  background-color: darkorchid;
-  text-align: left;
-  color: white;
-  padding-left: 10px;
-  font-size: 1.4em;
 }
 
 .deck-detail-btn{
   text-align: left;
 }
 
-.setting-deck-status{
-  width: 100%;
-  background-color: darkorchid;
-  text-align: left;
-  color: white;
-  padding-left: 10px;
-  font-size: 1.4em;
-}
 
+.post-bt{
+  margin-bottom: 100px;
+}
 
 
 

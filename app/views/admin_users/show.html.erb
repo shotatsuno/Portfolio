@@ -1,80 +1,29 @@
-<div class="container-fluid edit-mypage">
-  <div class="row">
-  <div class="mypage-up">
-    <div class="row">
-       <h1 class="col-5 offset-1">マイページ</h1><div class="col-6"></div>
-          <div class="col-5 offset-1">
-              <div  data-toggle="modal" data-target="#exampleModalCenter3">
-                <%= attachment_image_tag @user, :profile_image, :fill,120,120,fallback:'no_image.jpg' %>
-              </div>
+<div class="container-fluid edit-mypage-admin">
+    <div class="mypage-up-admin">
+      <div class="admin-user-edit"><h1>ユーザー編集画面</h1></div>
+      <div class="row">
+          <div class="col-3 offset-1">
+            <div>
+              <%= attachment_image_tag @user, :profile_image, :fill,120,120,fallback:'no_image.jpg' %>
+            </div>
             
-              <!-- モーダルの設定 -->
-              <%= render 'users/modalimage', profile_image: @profile_image %>
-
             <h3><%= @user.user_name %></h3>
+            <p><%= @user.email %></p>
+            <p>フォロワー数   <%= @user.followers.count %></p>
           </div>
 
-      <div class="col-6">
-      <div class = "profile form-group">
-      <h3>プロフィール</h3>
-        <%= @user.introduction %></br>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-            プロフィールの編集
-        </button>
-      </div>
-      </div>
-          <!-- モーダルの設定 -->
-          <%= render 'users/modalP', new_profile: @new_profile %>
-      </div>
-
-
-      <div class = "form-group">
-        <div class="row">
-          <h3 class="col-5 offset-1">投稿レシピ一覧</h3><div class="col-6"></div>
-          <% @decks.each do |f| %>
-            <table class="mypage-decks col-10 offset-1" border="1">
-            <tbody>
-              <tr>
-                <td class="deck_image" rowspan="4">
-                  <% if f.image.attached? %>
-                    <%= image_tag f.image.variant(resize:'300x300').processed %>
-                  <% end %>
-                </td>
-
-                <th class="table2"> デッキ名</th>
-                <td class="table3" colspan="2">
-                  <small>
-                    <%= link_to f.deck_name, deck_path(f.id) %>
-                  </small>
-                </td>
-              </tr>
-
-              <tr>
-                <th class="table2">デッキテーマ</th>
-                  <td class="table3" colspan="2">
-                    <%= f.deck_theme.deck_theme %>
-                  </td>
-              </tr>
-
-              <tr>
-                <th class="table2">リンクステーマ</th>
-                  <td class="table3" colspan="2">
-                    <%= f.link_theme.link_theme %>
-                  </td>
-              </tr>
-
-              <tr>
-                <th class="table2">コメント</th>
-                <td class="table3" colspan="2"><%=f.deck_detail %></td>
-              </tr>
-              </tbody>
-            <% end %>
-          </table>
-        </div>
-      </div>
-      </div>
+          <div class="col-8">
+            <div>
+              <h3>プロフィール</h3>
+              <%= @user.introduction %></br>
+            </div>
+            <div>
+            <p><%= button_to "ユーザーを退会させる", admin_user_path(@user), data: { confirm: "本当によろしいですか?" }, method: :delete,class:"btn btn-danger" %></p>
+            </div>
+          </div>
       </div>
     </div>
+</div>
 
 
 

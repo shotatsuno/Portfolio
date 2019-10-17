@@ -1,5 +1,6 @@
 class LikeDecksController < ApplicationController
-  
+  before_action :authenticate_user!
+
   def index
     @deck_themes=DeckTheme.all
     @link_themes=LinkTheme.all

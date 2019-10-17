@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_save { self.email = email.downcase }
   
   is_impressionable
   
@@ -11,6 +12,16 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   
+  validates :introduction,
+  length: { maximum: 150}
+  
+  validates :user_name,
+  length: { maximum: 10},
+  presence: true,
+  uniqueness: true
+  
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, {presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }}
   
   #画像
   attachment :profile_image

@@ -34,8 +34,7 @@ class DecksController < ApplicationController
     @deck_themes=DeckTheme.all
     @link_themes=LinkTheme.all
     #閲覧数ランキング
-    deck_pv=Deck.all
-    @deck_pvs=deck_pv.order('impressions_count DESC').limit(10)
+    @deck_pvs=Deck.order('impressions_count DESC').limit(10)
   end
   
   def show
@@ -66,17 +65,47 @@ class DecksController < ApplicationController
   def create
     deck = Deck.new(deck_params)
     deck.user_id = current_user.id
-    if deck.save!
+    if deck.save
       redirect_to edit_user_path(current_user.id)
     else
-      render :new
+      redirect_to new_deck_path,notice:"必須部分を入力してください"
+      
     end
   end
   
+  def edit
+    @deck=Deck.find(params[:id])
+  end
   
+  def destroy
+    deck=Deck.find(params[:id])
+    user=current_user
+    deck.destroy
+    redirect_to edit_user_path(user)
+  end
+  
+  def edit_deck_name
+    deck=Deck.find(params[:id])
+    deck.update(deck_name_params)
+    redirect_to edit_deck_path(deck)
+  end
+  
+  def edit_deck_comment
+    deck=Deck.find(params[:id])
+    deck.update(deck_comment_params)
+    redirect_to edit_deck_path(deck)
+  end
   
   private
     def deck_params
-      params.require(:deck).permit(:link_theme_id,:deck_theme_id,:deck_name,:deck_detail,:deck_status,:url,:image)
+      params.require(:deck).permit(:link_theme_id,:deck_theme_id,:deck_name,:deck_detail,:image)
+    end
+  
+    def deck_name_params
+      params.require(:deck).permit(:deck_name)
+    end
+  
+    def deck_comment_params
+      params.require(:deck).permit(:deck_detail)
     end
 end

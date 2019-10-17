@@ -8,6 +8,16 @@ class Deck < ApplicationRecord
 
   has_many :comments
   
+  #バリデーション
+  validates :deck_detail,
+  length: { maximum: 300}
+  
+  validates :deck_name,
+  presence: true
+  
+
+  
+  
   #いいね
   has_many :favorites, dependent: :destroy
   def favorited_by?(user)
@@ -26,4 +36,9 @@ class Deck < ApplicationRecord
     return Deck.all unless search
     Deck.where(['deck_name LIKE ?',"%#{search}%"])
   end
+  
+  #週間ランキング機能
+  scope :week, -> { where("created_at > ?",Time.zone.now-1.week) }
+  
 end
+

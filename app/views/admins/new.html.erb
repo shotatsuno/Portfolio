@@ -1,10 +1,10 @@
 <div class = 'container admin-new'>
   <div class="row">
-    <div class="category-title col-11 offset-1">
+    <div class="category-title col-12">
       <h1 >カテゴリ登録</h1>
-        <h2 >現在存在するカテゴリー</h2>
+        <h2 class="col-12">現在存在するカテゴリー</h2>
     </div>
-          <div class = 'col-5 offset-1'>
+          <div class = 'col-4 offset-3'>
             <h2>デッキタイプ</h2>
               <ul class="tab_menu">
                 <% @deck_themes.each do |f| %>
@@ -14,7 +14,7 @@
             <%= link_to '追加', add_deck_theme_path %>
           </div>
       
-          <div class = 'col-6'>
+          <div class = 'col-5'>
             <h2>リンクステーマ</h2>
               <ul class="tab_menu">
                 <% @link_themes.each do |f| %>
@@ -23,5 +23,6 @@
               </ul>
             <%= link_to '追加', add_link_theme_path %>
           </div>
+  
   </div>
 </div>

@@ -5,9 +5,14 @@ class AdminUsersController < ApplicationController
   end
   
   def show
+    @user=User.find(params[:id])
+    @decks=@user.decks
   end
   
   def destroy
+    user=User.find(params[:id])
+    user.destroy
+    redirect_to admin_users
   end
   
   def admin_search_user

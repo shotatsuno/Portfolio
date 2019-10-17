@@ -1,8 +1,18 @@
-<div>
-  <h1>デッキテーマの追加</h1>
-      <%= form_for @deck_theme, url: register_deck_theme_path, method: :post do |f| %>
-        <%= f.label :deck_theme, 'デッキテーマの追加' %>
-        <%= f.text_field :deck_theme %>
-      <%= f.submit '登録' %>
-      <% end %>
+<div class="container add-deck-theme">
+   <div class="row">
+      <h1 class="col-12 add-deck-theme-h">デッキテーマの追加</h1>
+         <h2 class="col-12">現在存在するデッキテーマ</h2>
+              <ul class="tab-menu col-5 offset-1">
+                <% @deck_themes.each do |f| %>
+                  <li><%= f.deck_theme %></li>
+                <% end %>
+              </ul>
+        <div class="add-theme-form col-5">
+          <%= form_for @deck_theme, url: register_deck_theme_path, method: :post do |f| %>
+            <%= f.label :deck_theme, 'デッキテーマの追加' %>
+            <%= f.text_field :deck_theme %>
+          <%= f.submit '登録' %>
+          <% end %>
+        </div>
+   </div>
 </div>

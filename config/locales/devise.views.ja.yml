@@ -17,12 +17,18 @@ ja:
               too_long: "は%{count}文字以下に設定して下さい。"
               invalid: "は有効でありません。"
               confirmation: "が内容とあっていません。"
+            user_name:
+              too_long: "は最大10文字です"
+              taken: "はすでに使われています"
+            password_confirmation:
+              confirmation: "が内容とあっていません。"
     attributes:
       user:
         current_password: "現在のパスワード"
         name: 名前
         email: "メールアドレス"
         password: "パスワード"
+        user_name: "ユーザーネーム"
         password_confirmation: "確認用パスワード"
         remember_me: "次回から自動的にログイン"
     models:

@@ -4,10 +4,14 @@
 
 .comment-new{
   font-size: 1.6em;
+  color: white;
+  
 }
 
 .comment-new-little{
   margin: 0 auto;
+  background-color: black;
+  padding-top: 30px;
 }
 
 .comment-form{
@@ -16,4 +20,8 @@
 
 .readme-list{
   margin-left: 40px;
+}
+
+.form-controll-comment{
+  background-color: white;
 }

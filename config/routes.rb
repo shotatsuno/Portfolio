@@ -30,6 +30,10 @@ Rails.application.routes.draw do
   resources :decks do
     resource :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy,:new]
+    member do
+      patch 'edit_deck_name' => 'decks#edit_deck_name'
+      patch 'edit_deck_comment' => 'decks#edit_deck_comment'
+    end
   end
   
   get 'search' => 'decks#search'

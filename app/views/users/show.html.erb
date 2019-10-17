@@ -1,8 +1,9 @@
 <div class="container-fluid edit-mypage">
   <div class="row">
     <div class="mypage-up">
+      <%= image_tag('MakeDecker8.jpg', class:"make-decker8 col-12") %>
       <div class=" user-show row">
-        <div class="col-5 offset-1 ">
+        <div class="col-2 offset-2 ">
           <%= attachment_image_tag @user, :profile_image, :fill,120,120,fallback:'no_image.jpg' %>
           <div class = "form-group">
             <h3><%= @user.user_name %></h3>
@@ -11,10 +12,12 @@
           </div>
         </div>
 
-        <div class="col-6">
+        <div class="col-8">
           <div class = "profile form-group">
             <h3>プロフィール</h3>
-            <%= @user.introduction %></br>
+            <div class="user-show-profile">
+              <%= @user.introduction %></br>
+            </div>
           </div>
         </div>
     </div>
@@ -22,7 +25,23 @@
 
         <div class = "form-group">
           <div class="row whole-user-deck">
-            <h3 class="col-5 offset-1">投稿レシピ一覧</h3><div class="col-6"></div>
+            
+            
+             <div class="search-for-theme clearfix col-6 offset-1">
+              <div class="theme-search"><h2>テーマで検索</h2></div>
+                <div class="deck_theme clearfix">
+                  <%= form_with  url:user_path(@user.id),method: :get,local:true do |form| %>
+                    <%= select_tag 'deck_theme', options_from_collection_for_select(@deck_themes, :id, :deck_theme ),include_blank: "デッキテーマ" %>
+                </div>
+                <div class="link_theme ">
+                    <%= select_tag 'link_theme', options_from_collection_for_select(@link_themes, :id, :link_theme ),include_blank: "リンクステーマ" %>
+                  <%= form.submit '検索',class:'btn-primary select-search'%>
+                  <% end %>
+                </div>
+              </div>
+            <div class="col-5"></div>
+            
+            
             <% @decks.each do |f| %>
               <table class="mypage-decks col-10 offset-1" border="1">
               <tbody>
@@ -36,7 +55,7 @@
                   <th class="table2"> デッキ名</th>
                   <td class="table3" colspan="2">
                     <small>
-                      <%= link_to f.deck_name, deck_path(f.id) %>
+                      <%= link_to f.deck_name, deck_path(f.id),class:"link-deck" %>
                     </small>
                   </td>
                 </tr>

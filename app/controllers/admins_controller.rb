@@ -5,19 +5,18 @@ class AdminsController < ApplicationController
   def new
     @link_themes = LinkTheme.all
     @deck_themes = DeckTheme.all
- 
-   
-    
   end
   
 
   
   def add_deck_theme
      @deck_theme = DeckTheme.new
+     @deck_themes = DeckTheme.all
   end
   
   def add_link_theme
      @link_theme = LinkTheme.new
+     @link_themes = LinkTheme.all
   end
   
   def register_deck_theme
