@@ -12,13 +12,13 @@ class DecksController < ApplicationController
     @deck_themes=DeckTheme.all
     @link_themes=LinkTheme.all
      if params[:deck_theme].present?&&params[:link_theme].present?
-      @decks= Deck.where(deck_theme_id: params[:deck_theme],link_theme_id: params[:link_theme] )
+      @decks= Deck.page(params[:page]).reverse_order.where(deck_theme_id: params[:deck_theme],link_theme_id: params[:link_theme] )
     elsif params[:deck_theme].present?
-      @decks= Deck.where(deck_theme_id: params[:deck_theme])
+      @decks= Deck.page(params[:page]).reverse_order.where(deck_theme_id: params[:deck_theme])
     elsif params[:link_theme].present?  
-      @decks= Deck.where(link_theme_id: params[:link_theme])
+      @decks= Deck.page(params[:page]).reverse_order.where(link_theme_id: params[:link_theme])
     else
-      @decks = Deck.all
+      @decks = Deck.page(params[:page]).reverse_order
     end
   end
   

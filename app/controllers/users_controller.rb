@@ -28,13 +28,13 @@ class UsersController < ApplicationController
     @deck_themes=DeckTheme.all
     @link_themes=LinkTheme.all
      if params[:deck_theme].present?&&params[:link_theme].present?
-      @decks=@user.decks.order('created_at DESC').where(deck_theme_id: params[:deck_theme],link_theme_id: params[:link_theme] )
+      @decks=@user.decks.order('created_at DESC').where(deck_theme_id: params[:deck_theme],link_theme_id: params[:link_theme] ).page(params[:page]).per(2)
     elsif params[:deck_theme].present?
-      @decks=@user.decks.order('created_at DESC').where(deck_theme_id: params[:deck_theme])
+      @decks=@user.decks.order('created_at DESC').where(deck_theme_id: params[:deck_theme]).page(params[:page]).per(2)
     elsif params[:link_theme].present?  
-      @decks=@user.decks.order('created_at DESC').where(link_theme_id: params[:link_theme])
+      @decks=@user.decks.order('created_at DESC').where(link_theme_id: params[:link_theme]).page(params[:page]).per(2)
     else
-      @decks=@user.decks.order('created_at DESC').all
+      @decks=@user.decks.order('created_at DESC').page(params[:page]).per(2)
     end
   end
   
