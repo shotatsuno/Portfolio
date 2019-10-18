@@ -1,7 +1,7 @@
 class RelationshipsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @users=current_user.followings
+    @users=current_user.followings.page(params[:page]).per(25)
   end
   
   def create
@@ -33,8 +33,7 @@ class RelationshipsController < ApplicationController
   end
   
   def search_following
-    @following_searchs = current_user.search_following(params[:search])
-#    binding.pry
+    @following_searchs = current_user.search_following(params[:search]).page(params[:page]).per(25)
   end
   
 

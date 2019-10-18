@@ -20,6 +20,9 @@ clearfix::after{
 
 /*indexのCSS*/
 
+.whole-index{
+  max-width: 1200px;
+}
 
 .deck_index{
   margin: 0 auto;
@@ -49,7 +52,6 @@ clearfix::after{
 }
 
 .deck_image{
-  text-align: center;
   width: 270px;
 }
 

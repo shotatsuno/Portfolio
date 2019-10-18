@@ -2,13 +2,13 @@
   <div class="row top-view">
     <%= image_tag('MakeDecker6.jpg', class:"make-decker col-10 offset-1") %>
     <div class="deck_index col-10 offset-1" >
-        <%= render 'decks/head', deck_themes: @deck_themes,link_themes: @link_themes %>
+        <%= render 'decks/head_like_deck', deck_themes: @deck_themes,link_themes: @link_themes %>
 
    
     <div class="deck_table">
       <% @like_decks.each do |f| %>
-        <h3 class="deck-name"><%= link_to f.deck_name ,deck_path(f.id),class:"link-color" %></h3>
-          <table class="deck_main" border="1">
+        <h3 class="deck-name col-10 offset-1"><%= link_to f.deck_name ,deck_path(f.id),class:"link-color" %></h3>
+          <table class="deck_main col-10 offset-1" border="1">
             <tbody>
               <tr>
                 <td class="deck_image" rowspan="4">
@@ -52,6 +52,7 @@
           </tbody>
         </table>
                 <% end %>
+  <%= paginate @like_decks, class: "paginate" %>
     </div>
 </div>
 </div>

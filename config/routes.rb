@@ -23,9 +23,12 @@ Rails.application.routes.draw do
   get 'add_link_theme' => 'admins#add_link_theme'
   post 'register_deck_theme' => 'admins#register_deck_theme'
   post 'register_link_theme' => 'admins#register_link_theme'
+  delete 'destroy_deck_theme/:id' => 'admins#destroy_deck_theme', as: 'destroy_deck_theme'
+  delete 'destroy_link_theme/:id' => 'admins#destroy_link_theme', as: 'destroy_link_theme'
   
-  resources :admin_users, only: [:index, :show, :destroy]
+  resources :admin_users, only: [:index, :show]
   get 'admin_search_user' => 'admin_users#admin_search_user'
+  
   
   resources :decks do
     resource :favorites, only: [:create, :destroy]

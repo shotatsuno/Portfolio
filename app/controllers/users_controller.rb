@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   
   def index
-    @users = User.order('follower_num DESC')
+    @users = User.order('follower_num DESC').limit(25)
   end
   
   def edit
@@ -13,13 +13,13 @@ class UsersController < ApplicationController
     @deck_themes=DeckTheme.all
     @link_themes=LinkTheme.all
     if params[:deck_theme].present?&&params[:link_theme].present?
-      @decks=@user.decks.order('created_at DESC').where(deck_theme_id: params[:deck_theme],link_theme_id: params[:link_theme] )
+      @decks=@user.decks.order('created_at DESC').where(deck_theme_id: params[:deck_theme],link_theme_id: params[:link_theme] ).page(params[:page]).per(25)
     elsif params[:deck_theme].present?
-      @decks=@user.decks.order('created_at DESC').where(deck_theme_id: params[:deck_theme])
+      @decks=@user.decks.order('created_at DESC').where(deck_theme_id: params[:deck_theme]).page(params[:page]).per(25)
     elsif params[:link_theme].present?  
-      @decks=@user.decks.order('created_at DESC').where(link_theme_id: params[:link_theme])
+      @decks=@user.decks.order('created_at DESC').where(link_theme_id: params[:link_theme]).page(params[:page]).per(25)
     else
-      @decks = @user.decks.order('created_at DESC').all
+      @decks = @user.decks.order('created_at DESC').page(params[:page]).per(25)
     end
   end
   
@@ -28,13 +28,13 @@ class UsersController < ApplicationController
     @deck_themes=DeckTheme.all
     @link_themes=LinkTheme.all
      if params[:deck_theme].present?&&params[:link_theme].present?
-      @decks=@user.decks.order('created_at DESC').where(deck_theme_id: params[:deck_theme],link_theme_id: params[:link_theme] ).page(params[:page]).per(2)
+      @decks=@user.decks.order('created_at DESC').where(deck_theme_id: params[:deck_theme],link_theme_id: params[:link_theme] ).page(params[:page]).per(25)
     elsif params[:deck_theme].present?
-      @decks=@user.decks.order('created_at DESC').where(deck_theme_id: params[:deck_theme]).page(params[:page]).per(2)
+      @decks=@user.decks.order('created_at DESC').where(deck_theme_id: params[:deck_theme]).page(params[:page]).per(25)
     elsif params[:link_theme].present?  
-      @decks=@user.decks.order('created_at DESC').where(link_theme_id: params[:link_theme]).page(params[:page]).per(2)
+      @decks=@user.decks.order('created_at DESC').where(link_theme_id: params[:link_theme]).page(params[:page]).per(25)
     else
-      @decks=@user.decks.order('created_at DESC').page(params[:page]).per(2)
+      @decks=@user.decks.order('created_at DESC').page(params[:page]).per(25)
     end
   end
   
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
   end
   
   def search_user
-    @search_users = User.search_user(params[:search])
+    @search_users = User.search_user(params[:search]).page(params[:page]).per(25)
   end
   
   private

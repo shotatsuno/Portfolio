@@ -5,14 +5,15 @@ class LikeDecksController < ApplicationController
     @deck_themes=DeckTheme.all
     @link_themes=LinkTheme.all
      if params[:deck_theme].present?&&params[:link_theme].present?
-      @decks= Deck.where(deck_theme_id: params[:deck_theme],link_theme_id: params[:link_theme] )
+      @like_decks= current_user.likedecks.where(deck_theme_id: params[:deck_theme],link_theme_id: params[:link_theme] ).page(params[:page]).per(25)
     elsif params[:deck_theme].present?
-      @decks= Deck.where(deck_theme_id: params[:deck_theme])
+      @like_decks= current_user.likedecks.where(deck_theme_id: params[:deck_theme]).page(params[:page]).per(25)
     elsif params[:link_theme].present?  
-      @decks= Deck.where(link_theme_id: params[:link_theme])
+      @like_decks= current_user.likedecks.where(link_theme_id: params[:link_theme]).page(params[:page]).per(25)
     else
-    @like_decks=current_user.likedecks
+      @like_decks=current_user.likedecks.page(params[:page]).per(25)
     end
+
   end
   
   

@@ -1,6 +1,6 @@
 class DecksController < ApplicationController
 
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index,:search]
   
   def new
     @deck = Deck.new
@@ -12,14 +12,15 @@ class DecksController < ApplicationController
     @deck_themes=DeckTheme.all
     @link_themes=LinkTheme.all
      if params[:deck_theme].present?&&params[:link_theme].present?
-      @decks= Deck.page(params[:page]).reverse_order.where(deck_theme_id: params[:deck_theme],link_theme_id: params[:link_theme] )
+      @decks= Deck.where(deck_theme_id: params[:deck_theme],link_theme_id: params[:link_theme] ).page(params[:page]).per(25)
     elsif params[:deck_theme].present?
-      @decks= Deck.page(params[:page]).reverse_order.where(deck_theme_id: params[:deck_theme])
+      @decks= Deck.where(deck_theme_id: params[:deck_theme]).page(params[:page]).per(25)
     elsif params[:link_theme].present?  
-      @decks= Deck.page(params[:page]).reverse_order.where(link_theme_id: params[:link_theme])
+      @decks= Deck.where(link_theme_id: params[:link_theme]).page(params[:page]).per(25)
     else
-      @decks = Deck.page(params[:page]).reverse_order
+      @decks = Deck.page(params[:page]).per(25)
     end
+
   end
   
   def popular_deck
@@ -27,14 +28,14 @@ class DecksController < ApplicationController
     @link_themes=LinkTheme.all
     #いいねランキング
     deck_fav=Deck.all
-    @deck_favs=deck_fav.order('favorite_num DESC')
+    @deck_favs=deck_fav.order('favorite_num DESC').limit(25)
   end
   
   def trend_deck
     @deck_themes=DeckTheme.all
     @link_themes=LinkTheme.all
     #閲覧数ランキング
-    @deck_pvs=Deck.order('impressions_count DESC').limit(10)
+    @deck_pvs=Deck.order('impressions_count DESC').limit(25)
   end
   
   def show
@@ -50,15 +51,15 @@ class DecksController < ApplicationController
     @deck_themes=DeckTheme.all
     @link_themes=LinkTheme.all
      if params[:deck_theme].present?&&params[:link_theme].present?
-      @decks= Deck.where(deck_theme_id: params[:deck_theme],link_theme_id: params[:link_theme] )
+      @decks= Deck.where(deck_theme_id: params[:deck_theme],link_theme_id: params[:link_theme] ).page(params[:page]).per(25)
     elsif params[:deck_theme].present?
-      @decks= Deck.where(deck_theme_id: params[:deck_theme])
+      @decks= Deck.where(deck_theme_id: params[:deck_theme]).page(params[:page]).per(25)
     elsif params[:link_theme].present?  
-      @decks= Deck.where(link_theme_id: params[:link_theme])
+      @decks= Deck.where(link_theme_id: params[:link_theme]).page(params[:page]).per(25)
     else
-      @decks = Deck.all
+      @decks = Deck.all.page(params[:page]).per(25)
     end
-    @deck_searchs = Deck.search(params[:search])
+    @deck_searchs = Deck.search(params[:search]).page(params[:page]).per(25)
   end
   
   
@@ -98,7 +99,7 @@ class DecksController < ApplicationController
   
   private
     def deck_params
-      params.require(:deck).permit(:link_theme_id,:deck_theme_id,:deck_name,:deck_detail,:image)
+      params.require(:deck).permit(:link_theme_id,:deck_theme_id,:deck_name,:deck_detail,:url,:image)
     end
   
     def deck_name_params

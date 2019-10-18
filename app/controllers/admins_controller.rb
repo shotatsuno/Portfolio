@@ -37,11 +37,18 @@ class AdminsController < ApplicationController
     end
   end
   
-  
-  def destroy
-    deck_theme = DeckTheme.find(params[:id])
+  def destroy_deck_theme
+    deck_theme=DeckTheme.find(params[:id])
     deck_theme.destroy
+    redirect_to new_admin_path
   end
+  
+  def destroy_link_theme
+    link_theme=LinkTheme.find(params[:id])
+    link_theme.destroy
+    redirect_to new_admin_path
+  end
+
   
   
   private

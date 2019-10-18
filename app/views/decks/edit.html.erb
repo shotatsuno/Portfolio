@@ -87,7 +87,7 @@
            <% i=1 %>
            <% @deck.comments.each do |comment| %>
            <div class="commenr-wrapper">
-             <div class="i"><%= i %>.名無しのデュエリスト</div>
+             <div class="i"><%= i %>.<%= comment.user.user_name %></div>
              <div class="comment-day"><%= comment.created_at.strftime('%Y/%m/%d') %></br></div>
              <div class="comment-box"><%= comment.comment %></div>
              <div class="comment-delete">

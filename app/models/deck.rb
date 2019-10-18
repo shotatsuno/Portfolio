@@ -15,7 +15,11 @@ class Deck < ApplicationRecord
   validates :deck_name,
   presence: true
   
-
+  validates :url, {
+    :allow_blank => true,
+    :format => URI::regexp(%w(http https)),
+    }
+  
   
   
   #いいね
@@ -39,6 +43,14 @@ class Deck < ApplicationRecord
   
   #週間ランキング機能
   scope :week, -> { where("created_at > ?",Time.zone.now-1.week) }
+  
+  private
+  
+  def prefix_url
+    if url !~ /^https://duellinks.konami.net/
+        errors.add(:url, " は https://duellinks.konami.net/ から始まるようにしましょう!")
+    end
+  end
   
 end
 
