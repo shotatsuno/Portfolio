@@ -97,11 +97,12 @@ body{
 .about-h1{
   background-color: darkorchid;
   color: white;
-  padding: 5px;
+  padding: 10px;
+  font-weight: bold;
 }
 
 .explain-how-to-use{
-  padding-left: 4px;
+  padding-left: 10px;
   color: white;
 }
 
@@ -171,12 +172,12 @@ body{
   left: 0;
   width: 100%;
   height: 4px;
-  background-color: black;
+  background-color: darkred;
   border-radius: 4px;
 }
 
 .menu{
-  color: darkviolet;
+  color: chartreuse;
   font-weight: bold;
   font-size: 1.6em;
   margin-left: 2px;

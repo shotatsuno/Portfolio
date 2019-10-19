@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     if comment.save
       redirect_to deck_path(deck)
     else
-      redirect_to new_deck_comment_path(deck),notice: "コメントは1文字以上300字以内でお願いします。"
+      redirect_to new_deck_comment_path(deck),notice: "コメントは1文字以上1000字以内でお願いします。"
     end
   end
   

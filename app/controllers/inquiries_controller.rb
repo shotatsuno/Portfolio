@@ -10,9 +10,7 @@ class InquiriesController < ApplicationController
   def create
     inquiry=current_user.inquiries.new(inquiry_params)
     if inquiry.save
-      redirect_to new_inquiry_path
-    else
-      redirect_to new_inquiry_path
+      redirect_to new_inquiry_path, notice: "ありがとうございます。送信完了しました"
     end
   end
   

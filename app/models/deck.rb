@@ -10,16 +10,17 @@ class Deck < ApplicationRecord
   
   #バリデーション
   validates :deck_detail,
-  length: { maximum: 300}
+  presence: true,
+  length: { maximum: 1000}
   
   validates :deck_name,
-  presence: true
+  presence: true,
+  length: { maximum: 25}
   
   validates :url, {
     :allow_blank => true,
     :format => URI::regexp(%w(http https)),
     }
-  
   
   
   #いいね

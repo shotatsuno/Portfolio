@@ -69,7 +69,7 @@ class DecksController < ApplicationController
     if deck.save
       redirect_to edit_user_path(current_user.id)
     else
-      redirect_to new_deck_path,notice:"必須部分を入力してください"
+      redirect_to new_deck_path,notice:"必須部分を入力していない、もしくはURLが間違っています。"
       
     end
   end

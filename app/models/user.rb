@@ -14,10 +14,10 @@ class User < ApplicationRecord
   has_many :inquiries, dependent: :destroy
   
   validates :introduction,
-  length: { maximum: 150}
+  length: { maximum: 300}
   
   validates :user_name,
-  length: { maximum: 10},
+  length: { maximum: 11},
   presence: true,
   uniqueness: true
   

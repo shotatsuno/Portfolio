@@ -46,7 +46,7 @@
               <table class="mypage-decks col-10 offset-1" border="1">
               <tbody>
                 <tr>
-                  <td class="deck_image" rowspan="4">
+                  <td class="deck_image" rowspan="3">
                     <% if f.image.attached? %>
                       <%= image_tag f.image.variant(resize:'300x300').processed %>
                     <% end %>
@@ -75,8 +75,10 @@
                 </tr>
 
                 <tr>
-                  <th class="table2">コメント</th>
-                  <td class="table3" colspan="2"><%=f.deck_detail %></td>
+                  <td id="comment" class="table3" colspan="3">
+                    <strong>コメント</strong></br>
+                    <small><%= f.deck_detail %></small>
+                  </td>
                 </tr>
                 </tbody>
               <% end %>

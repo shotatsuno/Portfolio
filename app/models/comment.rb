@@ -4,6 +4,6 @@ class Comment < ApplicationRecord
   
   validates :comment,
   presence: true,
-  length: {maximum: 300}
+  length: {maximum: 1000}
   
 end
