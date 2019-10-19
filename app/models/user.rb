@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :decks, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :inquiries, dependent: :destroy
   
   validates :introduction,
   length: { maximum: 150}

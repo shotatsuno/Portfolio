@@ -27,6 +27,7 @@ html{
   font-size: 62.5%;
   min-height: 100vh;
   min-width:  100vw;
+  position: relative;
 }
 
 
@@ -38,17 +39,72 @@ body{
   background-image: image-url("siber1.jpg");
   background-position: center;
   background-attchment: fixed;
+  margin-bottom: 30px;
 }
 
 /*フッター*/
 .footer{
-  background-color: black;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0;
   color: white;
+  height: 30px;
+  background-color: black;
   width: 100%;
-  height: 50px;
   text-align: center;
-  font-size: 1.1em;
+  line-height: 25px;
+  font-size: 10px;
 }
+
+
+/*about*/
+.jumbotron {
+  background-image: url("siber3.png");
+  background-size: cover;
+  background-position: center 60%;
+  margin-bottom: 100px;
+}
+
+.display-4{
+  color: white;
+  font-weight: bold;
+}
+
+.lead{
+  color: white;
+}
+
+.whole-about-all{
+  background-image: image-url("cards.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-attchment: fixed;
+  height: 100vh;
+}
+
+.whole-about{
+  max-width: 1000px;
+  height: 250px;
+  background-color: black;
+  background-size: cover;
+  background-position: center center;
+  background-attchment: fixed;
+  font-size: 1.4em;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+.about-h1{
+  background-color: darkorchid;
+  color: white;
+  padding: 5px;
+}
+
+.explain-how-to-use{
+  padding-left: 4px;
+  color: white;
+}
+
 
 
 /*画像*/

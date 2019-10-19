@@ -12,13 +12,13 @@ class DecksController < ApplicationController
     @deck_themes=DeckTheme.all
     @link_themes=LinkTheme.all
      if params[:deck_theme].present?&&params[:link_theme].present?
-      @decks= Deck.where(deck_theme_id: params[:deck_theme],link_theme_id: params[:link_theme] ).page(params[:page]).per(25)
+      @decks= Deck.where(deck_theme_id: params[:deck_theme],link_theme_id: params[:link_theme] ).page(params[:page]).per(25).order('created_at DESC')
     elsif params[:deck_theme].present?
-      @decks= Deck.where(deck_theme_id: params[:deck_theme]).page(params[:page]).per(25)
+      @decks= Deck.where(deck_theme_id: params[:deck_theme]).page(params[:page]).per(25).order('created_at DESC')
     elsif params[:link_theme].present?  
-      @decks= Deck.where(link_theme_id: params[:link_theme]).page(params[:page]).per(25)
+      @decks= Deck.where(link_theme_id: params[:link_theme]).page(params[:page]).per(25).order('created_at DESC')
     else
-      @decks = Deck.page(params[:page]).per(25)
+      @decks = Deck.page(params[:page]).per(25).order('created_at DESC')
     end
 
   end
@@ -51,15 +51,15 @@ class DecksController < ApplicationController
     @deck_themes=DeckTheme.all
     @link_themes=LinkTheme.all
      if params[:deck_theme].present?&&params[:link_theme].present?
-      @decks= Deck.where(deck_theme_id: params[:deck_theme],link_theme_id: params[:link_theme] ).page(params[:page]).per(25)
+      @decks= Deck.where(deck_theme_id: params[:deck_theme],link_theme_id: params[:link_theme] ).page(params[:page]).per(25).order('created_at DESC')
     elsif params[:deck_theme].present?
-      @decks= Deck.where(deck_theme_id: params[:deck_theme]).page(params[:page]).per(25)
+      @decks= Deck.where(deck_theme_id: params[:deck_theme]).page(params[:page]).per(25).order('created_at DESC')
     elsif params[:link_theme].present?  
-      @decks= Deck.where(link_theme_id: params[:link_theme]).page(params[:page]).per(25)
+      @decks= Deck.where(link_theme_id: params[:link_theme]).page(params[:page]).per(25).order('created_at DESC')
     else
-      @decks = Deck.all.page(params[:page]).per(25)
+      @decks = Deck.all.page(params[:page]).per(25).order('created_at DESC')
     end
-    @deck_searchs = Deck.search(params[:search]).page(params[:page]).per(25)
+    @deck_searchs = Deck.search(params[:search]).page(params[:page]).per(25).order('created_at DESC')
   end
   
   

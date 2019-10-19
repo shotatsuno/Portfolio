@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   resources :admin_users, only: [:index, :show]
   get 'admin_search_user' => 'admin_users#admin_search_user'
   
+  resources :inquiries, only: [:new, :create]
+  resources :admin_inquiries, only: [:index, :show, :destroy]
+  
   
   resources :decks do
     resource :favorites, only: [:create, :destroy]
@@ -45,8 +48,11 @@ Rails.application.routes.draw do
   get 'popular_deck' => 'decks#popular_deck'
   get 'trend_deck' => 'decks#trend_deck'
   
+  #エクストラ
   get 'how_to_upload' => 'extra#how_to_upload'
   get 'how_to_url_upload' => 'extra#how_to_url_upload'
+  get 'about' => 'extra#about'
+  
   
   root 'decks#index'
 

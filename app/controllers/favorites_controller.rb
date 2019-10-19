@@ -1,4 +1,7 @@
 class FavoritesController < ApplicationController
+  
+  before_action :authenticate_user!
+  
   def create
     @deck = Deck.find(params[:deck_id])
     favorite = current_user.favorites.new(deck_id: @deck.id)

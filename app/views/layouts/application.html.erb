@@ -16,16 +16,19 @@
       <ul>
         <% if user_signed_in? %>
         <li><a href="#"><%= link_to "TOP",root_path %></a></li>
+        <li><a href="#"><%= link_to "About",about_path %></a></li>
         <li><a href="#"><%= link_to "マイページ",edit_user_path(current_user.id) %></a></li>
         <li><a href="#"><%= link_to "デッキ投稿",new_deck_path %></a></li>
         <li><a><%= link_to "フォローしてるデュエリスト", relationships_path %></a></li>
         <li><a href="#"><%= link_to "人気デュエリスト",users_path %></a></li>
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, notice: "ログアウトしました。" %></a></li>
         <li><a href="#"><%= link_to "ユーザー情報編集",edit_user_registration_path(current_user) %></a></li>
+        <li><a href="#"><%= link_to "お問い合わせページ",new_inquiry_path %></a></li>
         <% else %>
         <li><a href="#"><%= link_to "ログイン", new_user_session_path %></a></li>
         <li><a href="#"><%= link_to "新規登録", new_user_registration_path %></a></li>
         <li><a href="#"><%= link_to "TOP",root_path %></a></li>
+        <li><a href="#"><%= link_to "About",about_path %></a></li>
         <% end %>
        <% if admin_signed_in? %>
         <li class="nav-item">
@@ -34,6 +37,7 @@
           <li><a><%= link_to "デッキテーマを追加", add_deck_theme_path %></a></li>
           <li><a><%= link_to "リンクステーマを追加", add_link_theme_path %></a></li>
           <li><a><%= link_to "ユーザー一覧", admin_users_path %></a></li>
+          <li><a><%= link_to "問合せ一覧", admin_inquiries_path %></a></li>
           <li><a><%= link_to "ログアウト", destroy_user_session_path, method: :delete, notice: "ログアウトしました。" %></a></li>
         </li>
        <% end %>
@@ -67,7 +71,13 @@
                       <%= flash[:notice]%> 
                 </div>
       <%end%>
-  </body
+
+<footer class="footer fixed-bottom">
+        <span class="footer-text">CopyRight MakeDecker(2019)</span>
+</footer>
+</body>
+
+
 
 
 

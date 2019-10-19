@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_093603) do
+ActiveRecord::Schema.define(version: 2019_10_19_050609) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -110,6 +110,14 @@ ActiveRecord::Schema.define(version: 2019_10_17_093603) do
     t.index ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index"
     t.index ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index"
     t.index ["user_id"], name: "index_impressions_on_user_id"
+  end
+
+  create_table "inquiries", force: :cascade do |t|
+    t.integer "user_id"
+    t.text "inquiry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "look_status", default: false
   end
 
   create_table "like_decks", force: :cascade do |t|

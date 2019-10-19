@@ -1,0 +1,27 @@
+<div class="container-fluid comment-new">
+  <div class="row">
+    <div class="comment-new-little">
+      <h1 class="comment-h-new col-12">お問い合わせ</h1>
+        <div class="notice col-12"><%= notice %></div>
+          <div class="comment-form col-12">
+            <%= form_for (@inquiry) do |f| %>    
+              <%= f.text_area :inquiry, row:'2', class: "form-controll-comment",size: "100x10",placeholder:"内容をここに" %></br>
+              <%= f.submit "送信する", class: "btn btn-primary mt-20 pull-right" %>
+            <% end %>
+          </div>
+
+          <div class="comment-readme col-12">
+            <p>ご不明点、ご要望、改善点などお書きください。</p>
+            <p>＊下記内容コメントは控えてください</p>
+            <ul class="readme-list">
+              <li>荒らし</li>
+              <li>悪口・暴言</li>
+              <li>卑猥な表現</li>
+              <li>個人情報</li>
+              <li>その他の不適切と判断される行為</li>
+            </ul>
+            <p>上記に該当するコメントを投稿した場合、利用を制限する可能性があります。</p>
+          </div>
+    </div>
+  </div>
+</div>

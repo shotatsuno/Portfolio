@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   
+  before_action :authenticate_user!
+  
   def new
     @deck=Deck.find(params[:deck_id])
     @comment = Comment.new

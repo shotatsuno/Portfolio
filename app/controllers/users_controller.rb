@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!
   
   def index
     @users = User.order('follower_num DESC').limit(25)

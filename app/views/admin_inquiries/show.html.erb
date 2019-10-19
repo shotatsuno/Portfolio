@@ -1,0 +1,16 @@
+<div class="container-fluid comment-new">
+  <div class="row inquity-show-row">
+    <div class="comment-new-little col-10 offset-1">
+      <h1 class="comment-h-new ">お問い合わせ内容</h1>
+        <div class="notice"><%= notice %></div>
+          <div class="inquiry-text">
+            <%= @inquiry.inquiry %>
+          </div>
+
+          <div class="comment-readme col-12">
+            <p>名前：<%=@user.user_name%></p>
+            <p>メールアドレス: <%=@user.email %></p>
+          </div>
+    </div>
+  </div>
+</div>
