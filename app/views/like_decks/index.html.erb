@@ -4,57 +4,55 @@
     <div class="deck_index col-10 offset-1" >
         <%= render 'decks/head_like_deck', deck_themes: @deck_themes,link_themes: @link_themes %>
 
-   
-    <div class="deck_table">
-      <% @like_decks.each do |f| %>
-        <h3 class="deck-name col-10 offset-1"><%= link_to f.deck_name ,deck_path(f.id),class:"link-color" %></h3>
-          <table class="deck_main col-10 offset-1" border="1">
-            <tbody>
-              <tr>
-                <td class="deck_image" rowspan="4">
-                  <% if f.image.attached? %>
-                    <%= image_tag f.image.variant(resize:'400x400').processed %>
-                  <% end %>
-                </td>
-                
-              <th class="table2">デッキテーマ</th>
-                <td class="table3" colspan="2">
-                  <%= f.deck_theme.deck_theme %>
-                </td>
-              </tr>
-              
-              <tr>
-               <th class="table2">リンクステーマ</th>
-                <td class="table3" colspan="2">
-                  <%= f.link_theme.link_theme %>
-                </td>
-              </tr>
-              
-              <tr>
-              <th class="table2"> 投稿者</th>
-                <td class="table3" colspan="2">
-                  <small>
-                    <%= f.user.user_name %>
-                  </small>
-                </td>
-              </tr>
-              
-              <tr>
-                <th class="table2">投稿日</th>
-                  <td class="table3" colspan="2"><%=f.created_at.strftime('%Y/%m/%d') %></td>
-              </tr>
-              <tr>
-                <td id="comment" class="table3" colspan="3">
-                  <strong>コメント</strong></br>
-                  <small><%= f.deck_detail %></small>
-                </td>
-              </tr>
-          </tbody>
-        </table>
-                <% end %>
-  <%= paginate @like_decks, class: "paginate" %>
+      <div class="deck_table">
+        <% @like_decks.each do |f| %>
+          <h3 class="deck-name col-10 offset-1"><%= link_to f.deck_name ,deck_path(f.id),class:"link-color" %></h3>
+            <table class="deck_main col-10 offset-1" border="1">
+              <tbody>
+                <tr>
+                  <td class="deck_image" rowspan="4">
+                    <% if f.image.attached? %>
+                      <%= image_tag f.image.variant(resize:'400x400').processed %>
+                    <% end %>
+                  </td>
+
+                <th class="table2">デッキテーマ</th>
+                  <td class="table3" colspan="2">
+                    <%= f.deck_theme.deck_theme %>
+                  </td>
+                </tr>
+
+                <tr>
+                 <th class="table2">リンクステーマ</th>
+                  <td class="table3" colspan="2">
+                    <%= f.link_theme.link_theme %>
+                  </td>
+                </tr>
+
+                <tr>
+                <th class="table2"> 投稿者</th>
+                  <td class="table3" colspan="2">
+                    <small>
+                      <%= f.user.user_name %>
+                    </small>
+                  </td>
+                </tr>
+
+                <tr>
+                  <th class="table2">投稿日</th>
+                    <td class="table3" colspan="2"><%=f.created_at.strftime('%Y/%m/%d') %></td>
+                </tr>
+                <tr>
+                  <td id="comment" class="table3" colspan="3">
+                    <strong>コメント</strong></br>
+                    <small><%= f.deck_detail %></small>
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+        <% end %>
+        <%= paginate @like_decks, class: "paginate" %>
+      </div>
     </div>
-</div>
-</div>
-</div>
+  </div>
 </div>

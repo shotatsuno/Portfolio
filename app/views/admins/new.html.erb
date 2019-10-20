@@ -1,33 +1,35 @@
 <div class = 'container admin-new'>
   <div class="row">
+    
     <div class="category-title col-12">
-      <h1 >カテゴリ登録</h1>
+      <h1>カテゴリ登録</h1>
         <h2 class="col-12">現在存在するカテゴリー</h2>
     </div>
+    
     <div class="col-12 category-notice">
       <p>＊リストにあるボタンを押すと削除ができます</p>
       <p>削除するとそのカテゴリーの全てのデータが消えてしまいます。</p>
       <p>できるだけ削除は避けてください。</p>
     </div>
-          <div class = 'col-4 offset-3'>
-            <h2>デッキタイプ</h2>
-              <ul class="tab_menu">
-                <% @deck_themes.each do |f| %>
-                  <li><%= link_to f.deck_theme,destroy_deck_theme_path(f.id),method: :delete, data: {confirm: '本当に削除しますか？'},class:"deck-theme-d" %></li>
-                <% end %>
-              </_l>
+          
+    <div class = 'col-4 offset-3'>
+      <h2>デッキタイプ</h2>
+        <ul class="tab_menu">
+          <% @deck_themes.each do |f| %>
+            <li><%= link_to f.deck_theme,destroy_deck_theme_path(f.id),method: :delete, data: {confirm: '本当に削除しますか？'},class:"deck-theme-d" %></li>
+          <% end %>
             <%= link_to '追加', add_deck_theme_path %>
-          </div>
+    </div>
       
-          <div class = 'col-5'>
-            <h2>リンクステーマ</h2>
-              <ul class="tab_menu">
-                <% @link_themes.each do |f| %>
-                  <li><%= link_to f.link_theme ,destroy_link_theme_path(f.id),method: :delete, data: {confirm: '本当に削除しますか？'},class:"link-theme-d" %></li>
-                <% end %>
-              </ul>
-            <%= link_to '追加', add_link_theme_path %>
-          </div>
-  
+    <div class = 'col-5'>
+      <h2>リンクステーマ</h2>
+        <ul class="tab_menu">
+          <% @link_themes.each do |f| %>
+            <li><%= link_to f.link_theme ,destroy_link_theme_path(f.id),method: :delete, data: {confirm: '本当に削除しますか？'},class:"link-theme-d" %></li>
+          <% end %>
+        </ul>
+          <%= link_to '追加', add_link_theme_path %>
+    </div>
+      
   </div>
 </div>

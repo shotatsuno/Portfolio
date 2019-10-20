@@ -10,22 +10,22 @@
                     <th>削除</th>
               </tr>
         </thead>
-            <h1><u>問合せ一覧</u></h1><br>
-              <% @inquiries.each do |inquiry| %>
-              <tr>
-                <% user = @users.find(inquiry.user_id) %>
-                    <th><%= user.user_name %> </th>
-                    <th><%= inquiry.created_at.to_s(:datetime) %> </th>
-                    <th><%= inquiry.inquiry.truncate(20) %></th>
-                    <% if inquiry.look_status %>
-                      <th><span class="label label-success">既読済</span></th>
-                    <% else %>
-                      <th><span class="label label-danger">未読</span></th>
-                    <% end %>
-                    <th></th>
-             </tr>
-              <% end %>
-             <%= paginate @inquiries, class: "paginate" %>
+              <h1><u>問合せ一覧</u></h1><br>
+                <% @inquiries.each do |inquiry| %>
+                <tr>
+                  <% user = @users.find(inquiry.user_id) %>
+                      <th><%= user.user_name %> </th>
+                      <th><%= inquiry.created_at.to_s(:datetime) %> </th>
+                      <th><%= inquiry.inquiry.truncate(20) %></th>
+                      <% if inquiry.look_status %>
+                        <th><span class="label label-success">既読済</span></th>
+                      <% else %>
+                        <th><span class="label label-danger">未読</span></th>
+                      <% end %>
+                      <th></th>
+               </tr>
+                <% end %>
+               <%= paginate @inquiries, class: "paginate" %>
       </table>
-    </div>
+  </div>
 </div>

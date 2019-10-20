@@ -5,41 +5,40 @@
          <%= image_tag('MakeDecker3.jpg', class:"make-decker3 col-10 offset-1") %>
       </div>
         <!--検索フォーム-->
-      <div class="row">
-        <div class="name-search col-10 offset-1"><h2 class="name-search-h2">デュエリストを検索</h2></div>
-        <div class="col-1"></div>
-      </div>
+          <div class="row">
+            <div class="name-search col-10 offset-1"><h2 class="name-search-h2">デュエリストを検索</h2></div>
+            <div class="col-1"></div>
+          </div>
       <div class="row">
           <%= form_with url:search_user_path, method: :get, local:true,class:"user-search-box col-10 offset-1" do |search| %>
             <%= text_field_tag :search %>
             <%= search.submit '検索'%>
           <% end %>
-      <div class="col-1"></div>
+        <div class="col-1"></div>
       </div>
           
-          <% i= 1 %>
-          <% @users.each do |f| %>
-            <div class="form-group">
-                <div class="row">
-                  <div class="rank col-11 offset-1">第<%= i %>位</div>
-                </div>
-                 <div class="row">
-                   <div class="col-3 offset-1">
-                     <%= link_to user_path(f.id),class:"link-color-user"  do %>
-                     <div class="users-image-index"><%= attachment_image_tag f, :profile_image, :fill,120,120,fallback:'no_image.jpg' %></div>
+      <% i= 1 %>
+        <% @users.each do |f| %>
+          <div class="form-group">
+            <div class="row">
+              <div class="rank col-11 offset-1">第<%= i %>位</div>
+            </div>
+              <div class="row">
+                <div class="col-3 offset-1">
+                  <%= link_to user_path(f.id),class:"link-color-user"  do %>
+                    <div class="users-image-index"><%= attachment_image_tag f, :profile_image, :fill,120,120,fallback:'no_image.jpg' %></div>
                       <%= f.user_name %>
-                     <% end %>
-                   </div>
-                    <div class="user-profile-index col-7">
-                      <h2>総フォロワー数      <%= f.followers.count %>人       総デッキ数      <%= f.decks.count %>個</h2>
-                      <div class="users-intro"><%= f.introduction %></div>
-                    </div>
-                    <div class="col-1"></div>
-                  </div>
-          <% i+=1 %>
+                      <% end %>
+                </div>
+                      <div class="user-profile-index col-7">
+                        <h2>総フォロワー数      <%= f.followers.count %>人       総デッキ数      <%= f.decks.count %>個</h2>
+                          <div class="users-intro"><%= f.introduction %></div>
+                      </div>
+                      <div class="col-1"></div>
+              </div>
+            <% i+=1 %>
+          </div>
+        <% end %>
     </div>
-      <% end %>
- 
-      </div>
   </div>
 </div>
