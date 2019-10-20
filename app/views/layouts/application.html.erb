@@ -24,15 +24,10 @@
         <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, notice: "ログアウトしました。" %></a></li>
         <li><a href="#"><%= link_to "ユーザー情報編集",edit_user_registration_path(current_user) %></a></li>
         <li><a href="#"><%= link_to "お問い合わせページ",new_inquiry_path %></a></li>
-        <% else %>
-        <li><a href="#"><%= link_to "ログイン", new_user_session_path %></a></li>
-        <li><a href="#"><%= link_to "新規登録", new_user_registration_path %></a></li>
-        <li><a href="#"><%= link_to "TOP",root_path %></a></li>
-        <li><a href="#"><%= link_to "About",about_path %></a></li>
-        <% end %>
-       <% if admin_signed_in? %>
+        <li><a href="#"><%= link_to "利用規約",terms_of_service_path %></a></li>
+       <% elsif admin_signed_in? %>
         <li class="nav-item">
-          <li><a><%= link_to "管理者としてログインしています", edit_admin_registration_path %></a></li>
+          <li><a href="#"><%= link_to "TOP",root_path %></a></li>
           <li><a><%= link_to "管理者TOP", new_admin_path %></a></li>
           <li><a><%= link_to "デッキテーマを追加", add_deck_theme_path %></a></li>
           <li><a><%= link_to "リンクステーマを追加", add_link_theme_path %></a></li>
@@ -40,6 +35,12 @@
           <li><a><%= link_to "問合せ一覧", admin_inquiries_path %></a></li>
           <li><a><%= link_to "ログアウト", destroy_user_session_path, method: :delete, notice: "ログアウトしました。" %></a></li>
         </li>
+      <% else %>
+        <li><a href="#"><%= link_to "ログイン", new_user_session_path %></a></li>
+        <li><a href="#"><%= link_to "新規登録", new_user_registration_path %></a></li>
+        <li><a href="#"><%= link_to "TOP",root_path %></a></li>
+        <li><a href="#"><%= link_to "About",about_path %></a></li>
+        <li><a href="#"><%= link_to "利用規約",terms_of_service_path %></a></li>
        <% end %>
       </ul>
     </div>
@@ -65,22 +66,15 @@
   
 
           
-          <%= yield %>
-      <% if flash[:notice]%>
-                <div class="flash">
-                      <%= flash[:notice]%> 
-                </div>
-      <%end%>
+    <%= yield %>
+    <% if flash[:notice]%>
+        <div class="flash">
+            <%= flash[:notice]%> 
+        </div>
+    <%end%>
 
-<footer class="footer fixed-bottom">
-        <span class="footer-text">CopyRight MakeDecker(2019)</span>
-</footer>
-</body>
-
-
-
-
-
-
-
+    <footer class="footer fixed-bottom">
+            <span class="footer-text">CopyRight MakeDecker(2019)</span>
+    </footer>
+  </body>
 </html>

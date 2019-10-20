@@ -17,11 +17,11 @@
       <div class="col-1"></div>
       </div>
           
-          <% i= 1 %>
+ 
           <% @search_users.each do |f| %>
             <div class="form-group">
                 <div class="row">
-                  <div class="rank col-11 offset-1">第<%= i %>位</div>
+                  <div class="rank col-11 offset-1"></div>
                 </div>
                  <div class="row">
                    <div class="col-3 offset-1">
@@ -36,7 +36,6 @@
                     </div>
                     <div class="col-1"></div>
                   </div>
-          <% i+=1 %>
     </div>
       <% end %>
     <%= paginate @search_users, class: "paginate" %>
