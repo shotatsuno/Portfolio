@@ -1,10 +1,10 @@
 <div class="container-fluid edit-mypage">
   <div class="row">
     <div class="mypage-up">
-      <%= image_tag('MakeDecker8.jpg', class:"make-decker8 col-12") %>
+      <%= image_tag('/images/MakeDecker8.jpeg', class:"make-decker8 col-12") %>
       <div class=" user-show row">
         <div class="col-3 offset-2 ">
-          <%= attachment_image_tag @user, :profile_image, :fill,120,120,fallback:'no_image.jpg' %>
+          <%= attachment_image_tag @user, :profile_image, :fill,120,120,fallback:'/images/no_image.jpg' %>
             <div class = "form-group">
               <h3><%= @user.user_name %></h3>
               <div class="follower-num">フォロワー数  <%=@user.followers.count%></div>

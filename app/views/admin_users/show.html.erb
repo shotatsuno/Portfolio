@@ -4,7 +4,7 @@
       <div class="row">
           <div class="col-3 offset-1">
             <div>
-              <%= attachment_image_tag @user, :profile_image, :fill,120,120,fallback:'no_image.jpg' %>
+              <%= attachment_image_tag @user, :profile_image, :fill,120,120,fallback:'/images/no_image.jpg' %>
             </div>
             
             <h3><%= @user.user_name %></h3>

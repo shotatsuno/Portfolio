@@ -36,7 +36,7 @@ body{
   padding: 0;
   min-width:  100vw;
   min-height: 100vh;
-  background-image: image-url("siber1.jpg");
+  background-image: image-url("/images/siber1.jpg");
   background-position: center;
   background-attchment: fixed;
   margin-bottom: 30px;
@@ -59,7 +59,7 @@ body{
 
 /*about*/
 .jumbotron {
-  background-image: url("siber3.png");
+  background-image: url("/images/siber3.png");
   background-size: cover;
   background-position: center 60%;
   margin-bottom: 100px;
@@ -75,7 +75,7 @@ body{
 }
 
 .whole-about-all{
-  background-image: image-url("cards.jpg");
+  background-image: image-url("/images/cards.jpg");
   background-size: cover;
   background-position: center center;
   background-attchment: fixed;
@@ -111,7 +111,7 @@ body{
 /*画像*/
 
 .make-decker{
-  background-image: image-url("siber2.jpg");
+  background-image: image-url("/images/siber2.jpg");
   margin: 0 auto;
 }
 

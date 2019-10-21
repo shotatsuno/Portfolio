@@ -1,11 +1,11 @@
 <div class="container-fluid edit-mypage">
   <div class="row">
     <div class="mypage-up-edit">
-      <div class="row">     <%= image_tag('MakeDecker5.jpg', class:"make-decker5 col-10 offset-1") %></div>
+      <div class="row"><%= image_tag('/images/MakeDecker5.jpeg', class:"make-decker5 col-10 offset-1") %></div>
         <div class="row image-profile">
           <div class="col-4 offset-1">
             <div  data-toggle="modal" data-target="#exampleModalCenter3">
-              <%= attachment_image_tag @user, :profile_image, :fill,140,140,fallback:'no_image.jpg' %>
+              <%= attachment_image_tag @user, :profile_image, :fill,140,140,fallback:'/images/no_image.jpg' %>
             </div>
             
             <!-- モーダルの設定 -->
