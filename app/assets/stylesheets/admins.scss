@@ -1,0 +1,71 @@
+// Place all the styles related to the Admins controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.admin-new{
+  font-size: 1.6em;
+  background-color: white;
+  padding-bottom: 100px;
+  margin-top: 30px;
+}
+
+.category-title{
+  padding: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: cornflowerblue;
+  color: white;
+}
+
+.admin-user-edit{
+  background-color: cornflowerblue;
+  color: white;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.add-theme{
+  font-size: 1.6em;
+}
+
+.tab-menu{
+  margin-top: 30px;
+}
+
+.add-theme-form{
+  margin-top: 30px;
+}
+
+
+.edit-mypage-admin{
+  margin-top: 150px;
+}
+
+.category-notice{
+  color: red;
+  font-weight: bold;
+}
+
+.link-theme-d{
+  color: red;
+}
+
+.deck-theme-d{
+  color: red;
+}
+
+/* デッキテーマの追加*/
+
+.add-deck-theme{
+  background-color: white;
+  padding-bottom: 100px;
+  margin-top: 30px;
+  font-size: 1.6em;
+}
+
+.add-deck-theme-h{
+  background-color: cornflowerblue;
+  color: white;
+  padding: 10px;
+}

@@ -1,0 +1,20 @@
+<div class="container add-deck-theme">
+   <div class="row">
+      <h1 class="col-12 add-deck-theme-h">デッキテーマの追加</h1>
+         <h2 class="col-12">現在存在するリンクステーマ</h2>
+              <ul class="tab-menu col-5 offset-1">
+                <% @link_themes.each do |f| %>
+                  <li><%= f.link_theme %></li>
+                <% end %>
+              </ul>
+        <div class="add-theme-form col-5">
+          <%= form_for @link_theme, url: register_link_theme_path, method: :post do |f| %>
+            <%= f.label :link_theme, 'リンクステーマの追加' %>
+            <%= f.text_field :link_theme %>
+          <%= f.submit '登録' %>
+          <% end %>
+        </div>
+   </div>
+</div>
+
+

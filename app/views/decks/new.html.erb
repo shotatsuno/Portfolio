@@ -1,0 +1,82 @@
+<div class='container post_deck'>
+  <div class="row">
+    <h1 class="col-12 new-deck-h">デッキレシピを投稿しよう！</h1>
+
+      <div class="new-deck-form col-12">
+      <%= form_with model: @deck, local: true do |f| %>
+      <div class="notice col-8 offset-2"><%= notice %></div>
+    
+
+      <div class = "form-group-new-form col-8 offset-2 post-1">
+        <%= f.label :deck_name, 'デッキ名を入力（必須）',class:"post-deck-label"%></br>
+        <%= f.text_field :deck_name, class:"post-deck-name-box" %></br>
+      </div>
+
+
+      <div class = "form-group-new-form  col-8 offset-2 post-1 ">
+        <h3 class="post-deck-label">どんなデッキ？（必須）</h3>
+        <%= f.collection_select :deck_theme_id, @deck_themes, :id, :deck_theme, include_blank: 'デッキテーマ' %>
+      </div>
+
+      <div class = "form-group-new-form col-8 offset-2 post-1 ">
+        <h3 class="post-deck-label">リンクステーマ（必須）</h3>
+        <%= f.collection_select :link_theme_id, @link_themes, :id, :link_theme, include_blank: 'リンクステーマ' %>
+      </div>
+
+      <div class = "form-group-new-form  col-8 offset-2 post-1">
+        <h2 class="post-deck-label">画像をアップロード（必須）</h2>
+        <%= f.file_field :image,class:"select-deck-iamge" %>
+      </div>
+
+      <div class = "form-group-new-form  col-12">
+        <%= link_to "画像のアップロード方法", how_to_upload_path,class:"link-color" %>
+      </div>
+  
+      <div class = "form-group-new-form  col-8 offset-2 post-1">
+        <h2 class="post-deck-label">デッキのURLをアップロード（任意）</h2>
+        <%= f.text_field :url, class:"upload-deck-url-field" %>
+      </div>
+  
+      <div class = "form-group-new-form col-12">
+        <%= link_to "URLのアップロード方法", how_to_url_upload_path,class:"link-color"  %>
+      </div>
+
+      <div class = "form-group-new-form  col-8 offset-2 post-1">
+        <h2 class="post-deck-label">デッキの説明（必須）</h2>
+        <p>デッキの特徴を入力しよう！</p>
+          <button type="button" class="btn btn-primary deck-detail-btn" data-toggle="modal" data-target="#exampleModalCenter">
+          入力
+          </button>
+      </div>
+
+  <!-- モーダルの設定 -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">デッキの説明（必須）</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+                  <div class="modal-body">
+                     <%= f.text_area :deck_detail, class: "form-control",size: "100x20" %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                  </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      
+    <%= f.submit "投稿する",class:"btn btn-primary post-bt" %>
+  
+  <% end %>
+  </div>
+   
+  </div>
+
+</div>

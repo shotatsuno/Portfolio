@@ -1,0 +1,59 @@
+<div class="log-in">
+  <div class="container login-con">
+    <div class="form-title-login text-center">
+        <h2 class="login-title-1">デュエルリンクス </h2>
+        <h2 class="login-title-2">Make Decker</h2>
+        <h2>ユーザー情報編集 </h2>
+    </div>
+    <div class="form-body-login">
+
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="form-group">
+
+            <div class="login-field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+
+            <div class="login-field">
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+            </div>
+
+            <div class="login-field">
+              <%= f.label :password %> <i>(変更しない場合、空のまま)</i><br />
+              <%= f.password_field :password, autocomplete: "new-password" %>
+              <% if @minimum_password_length %>
+                <br />
+                <em><%= @minimum_password_length %> characters minimum</em>
+              <% end %>
+            </div>
+
+            <div class="login-field">
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+
+            <div class="login-field">
+              <%= f.label :current_password %> <i>(変更前のパスワードを入力してください)</i><br />
+              <%= f.password_field :current_password, autocomplete: "current-password" %>
+            </div>
+
+            <div class="login-field">
+            <div class="actions">
+              <%= f.submit "更新",class:"btn-lg btn-primary" %>
+            </div>
+            </div>
+          </div>
+      <% end %>
+      <div class="login-field">
+      <h3>アカウントを削除</h3>
+
+      <p><%= button_to "アカウントを削除", registration_path(resource_name), data: { confirm: "本当によろしいですか?" }, method: :delete,class:"btn btn-danger" %></p>
+      </div>
+      <div class="login-field">
+      <%= link_to "Back", :back %>
+      </div>

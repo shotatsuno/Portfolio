@@ -1,0 +1,104 @@
+
+<div class="container-fluid deck-show">
+  <div class="row whole-deck-show">
+    <%= image_tag('/images/MakeDecker4.jpeg', class:"make-decker4 col-8 offset-2") %>
+      <div class="deck-show-box col-8 offset-2">
+        <h3>PV数  <%= @deck.impressionist_count %></h3>
+          <div class="name-like-good clearfix">
+            <h2 class="deck-name-show" style="color: blue;" data-toggle="modal" data-target="#exampleModalCenterEditDeckName"><%= @deck.deck_name %></h2>
+              <!-- モーダル -->
+              <%= render 'decks/edit_deck_name', deck: @deck %>
+            
+              <!-- いいね -->
+              <div class="like-good clearfix">
+                <div id="good-show">
+                  <%= render 'favorites/like', deck: @deck %> 
+                </div>
+              </div>
+              <!-- 削除 -->
+              <div id="deck-delete">
+                  <%= link_to "このデッキを削除", deck_path(@deck),method: :delete,class:'btn btn-danger', data: {confirm: 'このデッキを削除してよろしいですか？'} %>
+              </div>
+          </div>
+       
+        
+   
+          <div class="deck-detail-table">
+            <table class="deck_detail_main" border="1">
+              <tbody>
+                <tr>
+                  <td class="deck-detail-image" rowspan="5">
+                    <% if @deck.image.attached? %>
+                      <%= image_tag @deck.image.variant(resize:'250x250').processed %>
+                    <% end %>
+                  </td>
+
+                  <th class="table2">投稿者名</th>
+                    <td class="table3" colspan="2">
+                     <%=link_to @deck.user.user_name, user_path(@deck.user.id) %>
+                    </td>
+                </tr>
+
+                <tr>
+                  <th class="table2">デッキテーマ</th>
+                    <td class="table3" colspan="2">
+                     <%= @deck.deck_theme.deck_theme %>
+                    </td>
+                </tr>
+
+                <tr>
+                  <th class="table2">リンクステーマ</th>
+                    <td class="table3" colspan="2">
+                      <%= @deck.link_theme.link_theme %>
+                    </td>
+                </tr>
+
+                <tr>
+                  <th class="table2">投稿日</th>
+                    <td class="table3" colspan="2">
+                      <%= @deck.created_at.strftime('%Y/%m/%d') %>
+                    </td>
+                </tr>
+
+                <tr>
+                  <th class="table2">URL</th>
+                    <td class="table3" colspan="2">
+                      <%=link_to 'このデッキをコピー', @deck.url %>
+                    </td>
+                </tr>
+                <tr>
+                  <td id="comment" class="table3" colspan="3">
+                    <strong style="color: blue;" data-toggle="modal" data-target="#exampleModalCenterEditDeckComment">デッキの解説</strong></br>
+                    <!-- モーダルの設定 -->
+                    <%= render 'decks/edit_deck_comment', deck: @deck %>
+                    <small><%= @deck.deck_detail %></small>
+                  </td>
+                </tr> 
+              </tbody>          
+            </table>
+          </div>
+
+      
+
+          <h2 class="comment-h">コメント</h2>
+          <% if user_signed_in? %>
+            <%= link_to "", new_deck_comment_path(@deck), class:"far fa-edit" %>
+          <% end %>
+
+          <div class="review-list">
+               <% i=1 %>
+               <% @deck.comments.each do |comment| %>
+               <div class="commenr-wrapper">
+                 <div class="i"><%= i %>.<%= comment.user.user_name %></div>
+                 <div class="comment-day"><%= comment.created_at.strftime('%Y/%m/%d') %></br></div>
+                 <div class="comment-box"><%= comment.comment %></div>
+                 <div class="comment-delete">
+                    <%= link_to "削除", deck_comment_path(comment.deck.id,comment.id),class: "btn btn-danger btn-sm", method: :delete, "data-comfirm" => "このレビューを削除しますか？" %>
+                 </div>
+                 <% i+=1 %>
+               </div>
+               <% end %>
+          </div>
+      </div>
+  </div>
+</div>

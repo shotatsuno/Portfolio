@@ -1,0 +1,41 @@
+// Place all the styles related to the AdminUsers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.admin-index{
+  font-size: 1.6em;
+  background-color: white;
+  margin-top: 50px;
+}
+
+.admin-index-title{
+  background-color: cornflowerblue;
+  color: white;
+  padding: 10px;
+}
+
+.admin-name-search-box{
+  margin-bottom: 20px;
+}
+
+.edit-mypage-admin{
+
+  font-size: 1.6em;
+}
+
+.mypage-up-admin{
+  background-color: white;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+
+.admin-user-pagenate{
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.admin-intro-show{
+  padding: 5px;
+}

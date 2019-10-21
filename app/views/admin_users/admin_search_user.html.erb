@@ -1,0 +1,30 @@
+<div class="container admin-index">
+	<div class="row">
+		<h1 class="col-12 admin-index-title">ユーザー一覧</h1>
+	</div>
+
+	<div class="row">
+      <div class="name-search-admin col-12"><h2>ユーザー名で検索</h2></div>
+      <div class="admin-name-search-box col-12">
+        <%= form_with url:admin_search_user_path, method: :get, local:true do |search| %>
+          <%= text_field_tag :search %>
+          <%= search.submit '検索' %>
+      </div>
+        <% end %>
+	</div>
+  
+   <div class="row">
+	<% @user_searchs.each do |user| %>
+	  <div class="user-box col-4">
+		<table class="table table-bordered">
+			<tr>
+				<td><%= link_to user.user_name, admin_user_path(user.id) %><br>
+					<%= user.updated_at.strftime('%Y/%m/%d') %>
+					<p class="text-success">最終更新</p>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<% end %>
+  </div>
+</div>

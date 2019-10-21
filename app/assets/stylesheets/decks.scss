@@ -1,0 +1,322 @@
+// Place all the styles related to the Decks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+clearfix::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+#good{
+  margin-left: 30px;
+}
+
+.link-color{
+  color: white;
+  font-weight: bold;
+}
+
+/*indexのCSS*/
+
+.whole-index{
+  max-width: 1200px;
+}
+
+.deck_index{
+  margin: 0 auto;
+  font-size: 1.6em;
+  background-image: image-url("/images/siber2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attchment: fixed;
+}
+
+.deck-search-whole{
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+#comment{
+  background-color: aquamarine;
+}
+
+#work.work-section{
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.post_deck{
+  text-align: center;
+}
+
+.deck_image{
+  width: 270px;
+}
+
+.pick-up{
+  font-size: 36px;
+}
+
+.deck_table{
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+
+.deck_main{
+  margin: 0 auto;
+  margin-bottom: 30px;
+  background-color: white;
+}
+
+.table2{
+  background-color:antiquewhite;
+  padding: 4px;
+}
+
+.table3{
+  padding: 4px;
+}
+
+.deck-name{
+  font-family: 'Bitter', serif;
+  border-bottom: 1px solid #cccccc;
+  font-size: 30px;
+  clear: both;
+  max-width: 770px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.search-for-theme{
+  float: left;
+  margin-bottom: 20px;
+}
+
+.theme-search{
+  margin-top: 10px;
+  color: white;
+}
+
+.deck_theme{
+ float: left;
+  margin-right: 10px;
+}
+
+.link_theme{
+  float: left;
+}
+
+.search{
+  margin-left: 30px;
+  float: left;
+}
+
+.name-search{
+  margin-top: 10px;
+  color: white;
+}
+
+.select-search{
+  margin-left: 10px;
+  padding: 0 10px;
+}
+
+/*showのCSS*/
+
+
+.deck-show{
+  font-size: 2.0em;
+  color: white;
+  font-weight: bold;
+}
+
+.make-decker4{
+  background-color: black;
+}
+
+.blue-name{
+  margin:0 auto;
+}
+
+.deck_detail_main{
+  width: 100%;
+}
+
+.deck-detail-table{
+  margin: 0 auto;
+  background-color: white;
+  color: black;
+}
+
+.deck-detail-image{
+  width: 100px;
+}
+
+.deck-show-box{
+  margin: 0 auto;
+  background-color: black;
+}
+
+.deck-name-show{
+  margin-right: 20px;
+  font-size: 40px;
+  font-family: 'Bitter', serif;
+}
+
+.like-good{
+  margin-bottom: 10px;
+}
+.like-show{
+  float: left;
+  margin-right: 20px;
+}
+
+#good-show{
+  float: left;
+  list-style: none;
+}
+
+.btn-lg{
+  width: 150px;
+}
+
+.comment-h{
+  background-color: deeppink;
+  color: white;
+  margin-top: 20px;
+  padding: 10px 0;
+}
+
+
+.i{
+  width: 80%;
+  float: left;
+}
+
+.commenr-wrapper{
+  border-bottom: 1px solid gray;
+  margin-bottom: 10px;
+}
+
+
+
+/*タブのCSS*/
+
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.pick_deck{
+   font-size: 1.6em;
+}
+
+.work-section .tabs-nav li {
+  border-right: 1px solid rgb(218,218,218);
+  border-left: 1px solid rgb(218,218,218);
+  list-style: none;
+  padding: 0px 10px;
+  background-color: beige;
+  float: left;
+  -webkit-box-shadow: 1px 0 rgb(255,255,255);
+          box-shadow: 1px 0 rgb(255,255,255);
+}
+
+.work-section .tabs-nav a{
+  display: block;
+}
+
+.work-section .tabs-nav a:hover,
+.woek-section .tabs-nav a.active {
+  background-color: rgb(51,51,51);
+  color: rgb(255,255,255);
+}
+
+/*new*/
+.post_deck{
+  font-size: 1.6em;
+  background-image: image-url("/images/siber2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attchment: fixed;
+  color: white;
+}
+
+.notice{
+  background-color: red;
+  margin-bottom: 10px;
+}
+
+.new-deck-h{
+  margin-top: 30px;
+}
+
+.post-deck-label{
+  width: 100%;
+  background-color: darkorchid;
+  text-align: left;
+  color: white;
+  padding: 4px;
+  font-size: 1.4em;
+}
+
+.post-deck-name-box{
+  width: 100%;
+}
+
+.form-group-new-form{
+  margin-bottom: 10px;
+}
+
+#deck_deck_theme_id{
+  width: 100%;
+}
+
+#deck_link_theme_id{
+  width: 100%;
+}
+
+.select-deck-image{
+  width: 100%;
+}
+
+.upload-deck-url-field{
+  width: 100%;
+}
+
+.deck-detail-btn{
+  text-align: left;
+}
+
+
+.post-bt{
+  margin-bottom: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

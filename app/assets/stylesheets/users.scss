@@ -1,0 +1,158 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.link-color-user{
+  color: white;
+  font-weight: bold;
+  font-size: 1.6em
+}
+
+.link-deck{
+  font-weight: bold;
+}
+
+.modal-content{
+  color: black;
+}
+
+/*edit*/
+
+.mypage-up-edit{
+  background-image: image-url("/images/siber2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attchment: fixed;
+  margin: 0 auto;
+  color: white;
+  max-width: 1200px;
+}
+
+.profile{
+  max-width: 450px;
+}
+
+.mypage-decks{
+  margin-bottom: 20px;
+}
+
+.deck_image{
+  width: 100px;
+}
+
+.table2{
+  width: 200px;
+}
+
+.table3{
+  width: 300px;
+}
+
+.edit-mypage{
+  font-size: 1.6em;
+}
+
+.user-intro-edit{
+  border: solid 2px gray;
+  padding: 4px;
+  margin-right: 20px;
+  background-color: black;
+  color: white;
+}
+
+.no-image-edit{
+  width: 100px;
+  height: 100px;
+  border: solid 2px gray;
+}
+
+/*index*/
+
+
+.user-index{
+  font-size: 1.5em;
+  color: white;
+}
+
+.whole-user-index{
+  background-image: image-url("/images/siber2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attchment: fixed;
+}
+
+.user-image-index{
+  margin-bottom: 20px;
+}
+
+.rank{
+  font-size: 3.0em
+}
+
+.users-intro{
+  border: 2px solid gray;
+  padding: 3px;
+  background-color: black;
+}
+
+.name-search{
+  text-align: right;
+}
+
+.user-search-box{
+  text-align: right;
+}
+
+.users-image-index{
+  border-radius: 50%;
+}
+
+/*show*/
+
+.user-show{
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.mypage-up{
+  background-image: image-url("/images/siber2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attchment: fixed;
+  color: white;
+  margin: 0 auto;
+}
+
+.user-show-profile{
+  border: solid 2px gray;
+  padding: 4px;
+  margin-right: 20px;
+  background-color: black;
+  color: white;
+}
+
+.mypage-decks{
+  background-color: white;
+  color: black;
+}
+
+.follower-btn{
+  float: left;
+  margin-right: 10px;
+}
+
+.btn-follow{
+  width: 100px;
+}
+
+.profile-image-show{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+
+
+

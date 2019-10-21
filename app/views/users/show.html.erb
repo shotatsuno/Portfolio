@@ -1,0 +1,98 @@
+<div class="container-fluid edit-mypage">
+  <div class="row">
+    <div class="mypage-up">
+      <%= image_tag('/images/MakeDecker8.jpeg', class:"make-decker8 col-12") %>
+      <div class=" user-show row">
+        <div class="col-3 offset-2 ">
+          <%= attachment_image_tag @user, :profile_image, :fill,120,120,fallback:'/images/no_image.jpg' %>
+            <div class = "form-group">
+              <h3><%= @user.user_name %></h3>
+              <div class="follower-num">フォロワー数  <%=@user.followers.count%></div>
+              <div id="follow-show"><%= render 'users/follow_button', user: @user %></div>
+            </div>
+        </div>
+
+        <div class="col-7">
+          <div class = "profile form-group">
+            <h3>プロフィール</h3>
+              <div class="user-show-profile">
+                <%= @user.introduction %></br>
+              </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class = "form-group">
+        <div class="row whole-user-deck">
+          <div class="search-for-theme clearfix col-6 offset-1">
+            <div class="theme-search"><h2>テーマで検索</h2></div>
+              <div class="deck_theme clearfix">
+                <%= form_with  url:user_path(@user.id),method: :get,local:true do |form| %>
+                  <%= select_tag 'deck_theme', options_from_collection_for_select(@deck_themes, :id, :deck_theme ),include_blank: "デッキテーマ" %>
+              </div>
+              <div class="link_theme ">
+                  <%= select_tag 'link_theme', options_from_collection_for_select(@link_themes, :id, :link_theme ),include_blank: "リンクステーマ" %>
+                  <%= form.submit '検索',class:'btn-primary select-search'%>
+                  <% end %>
+              </div>
+          </div>
+              <div class="col-5"></div>
+            
+            
+              <% @decks.each do |f| %>
+                <table class="mypage-decks col-10 offset-1" border="1">
+                  <tbody>
+                    <tr>
+                      <td class="deck_image" rowspan="3">
+                        <% if f.image.attached? %>
+                          <%= image_tag f.image.variant(resize:'300x300').processed %>
+                        <% end %>
+                      </td>
+
+                      <th class="table2"> デッキ名</th>
+                        <td class="table3" colspan="2">
+                          <small>
+                            <%= link_to f.deck_name, deck_path(f.id),class:"link-deck" %>
+                          </small>
+                        </td>
+                    </tr>
+
+                    <tr>
+                      <th class="table2">デッキテーマ</th>
+                        <td class="table3" colspan="2">
+                          <%= f.deck_theme.deck_theme %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                      <th class="table2">リンクステーマ</th>
+                        <td class="table3" colspan="2">
+                          <%= f.link_theme.link_theme %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                      <td id="comment" class="table3" colspan="3">
+                        <strong>コメント</strong></br>
+                        <small><%= f.deck_detail %></small>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              <% end %>
+              <%= paginate @decks, class: "paginate" %>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+

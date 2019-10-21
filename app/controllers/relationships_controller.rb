@@ -1,34 +1,40 @@
 class RelationshipsController < ApplicationController
-  before_action :set_user
+  before_action :authenticate_user!
+  def index
+    @users=current_user.followings.page(params[:page]).per(25)
+  end
   
   def create
-    user = User.find(params[:relationship][:follow_id])
-    following = current_user.follow(user)
+    @user = User.find(params[:follow_id])
+    following = current_user.follow(@user)
     if following.save
+      @user.follower_num+=1
+      @user.save
       flash[:success] = 'ユーザーをフォローしました'
-      redirect_to user
+      render :follow
     else
       flash.now[:alert] = 'ユーザーのフォローに失敗しました'
-      redirect_to user
+      @user.follower_num-=1
+      @user.save
+      render :follow
     end
   end
   
    def destroy
-    user = User.find(params[:relationship][:follow_id])
-    following = current_user.unfollow(user)
-    if following.destroy
+    @user = User.find(params[:follow_id])
+    following = current_user.unfollow(@user)
+    if following
       flash[:success] = 'ユーザーのフォローを解除しました'
-      redirect_to user
+      render :follow
     else
       flash.now[:alert] = 'ユーザーのフォロー解除に失敗しました'
-      redirect_to user
+      render :follow
     end
   end
-
-  private
-
-  def set_user
-    user = User.find(params[:relationship][:follow_id])
+  
+  def search_following
+    @following_searchs = current_user.search_following(params[:search]).page(params[:page]).per(25)
   end
+  
 
 end

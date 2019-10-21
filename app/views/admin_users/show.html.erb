@@ -1,0 +1,39 @@
+<div class="container-fluid edit-mypage-admin">
+    <div class="mypage-up-admin">
+      <div class="admin-user-edit"><h1>ユーザー編集画面</h1></div>
+      <div class="row">
+          <div class="col-3 offset-1">
+            <div>
+              <%= attachment_image_tag @user, :profile_image, :fill,120,120,fallback:'/images/no_image.jpg' %>
+            </div>
+            
+            <h3><%= @user.user_name %></h3>
+            <p><%= @user.email %></p>
+            <p>フォロワー数   <%= @user.followers.count %></p>
+          </div>
+
+          <div class="col-8">
+            <div>
+              <h3>プロフィール</h3>
+              <div class="admin-intro-show">
+                <%= @user.introduction %></br>
+              </div>
+            </div>
+            <div>
+            <p><%= button_to "ユーザーを退会させる", admin_user_path(@user), data: { confirm: "本当によろしいですか?" }, method: :delete,class:"btn btn-danger" %></p>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

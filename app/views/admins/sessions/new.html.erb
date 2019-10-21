@@ -1,0 +1,43 @@
+<div class="log-in">
+    <div class="container login-con ">
+      
+      <div class="row">
+      <div class="form-title-login text-center col-12">
+        <h2 class="login-title-1">デュエルリンクス(管理人) </h2>
+        <h2 class="login-title-2">Make Decker</h2>
+      </div>
+      </div>
+        
+      <div class="row">
+        <div class="form-body-login col-10 offset-1">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="form-group">
+
+            <div class="login-field ">
+              <span class="form-con">メールアドレス</span>
+              <%= f.email_field :email, autofocus: true, class:"form-control", placeholder:"メールアドレス" %>
+            </div>
+
+            <div class="login-field">
+              <span class="form-con">パスワード</span>
+              <%= f.password_field :password, autocomplete: "off", class:"form-control", placeholder:"パスワード" %>
+            </div>
+
+
+            <% if devise_mapping.rememberable? %>
+            <div class="login-field">
+            <span class="form-con"><%= f.check_box :remember_me %>ログイン情報を保持する</span>
+            </div>
+            <% end %>
+
+            <div class="login-field">
+              <%= f.submit "ログイン", class:"btn-lg btn-primary login-bt" %></br>
+            </div>
+          
+          </div>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+</div>

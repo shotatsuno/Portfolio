@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+      <% if deck.favorited_by?(current_user) %>
+        <li>
+          <%= link_to deck_favorites_path(deck.id),method: :delete, remote: :true,class: "btn btn-primary rounded-pill","data-disable-with"=> "送信中..." do %>
+         いいね  ⭐️<%= deck.favorites.count %>
+          <% end %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to deck_favorites_path(deck.id),method: :post, remote: :true,class: "btn btn-primary rounded-pill","data-disable-with"=> "送信中..." do %>
+         いいね  ⭐️<%= deck.favorites.count %>
+          <% end %>
+        </li>
+      <% end %>
+<% end %>
