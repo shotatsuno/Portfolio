@@ -45,7 +45,7 @@ class UsersController < ApplicationController
    if new_profile.update(profile_params)
       redirect_to edit_user_path(current_user.id)
    else
-      redirect_to edit_user_path(current_user.id), notice: "最大文字数は150文字までです"
+      redirect_to edit_user_path(current_user.id), notice: "最大文字数は325文字までです"
    end
   end
   

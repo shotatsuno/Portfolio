@@ -11,15 +11,15 @@ class Deck < ApplicationRecord
   #バリデーション
   validates :deck_detail,
   presence: true,
-  length: { maximum: 1000}
+  length: { maximum: 500}
   
   validates :deck_name,
   presence: true,
-  length: { maximum: 25}
+  length: { maximum: 20}
   
   validates :url, {
     :allow_blank => true,
-    :format => URI::regexp(%w(http https)),
+    :format => URI::regexp(%w(http https))
     }
   
   
@@ -45,13 +45,6 @@ class Deck < ApplicationRecord
   #週間ランキング機能
   scope :week, -> { where("created_at > ?",Time.zone.now-1.week) }
   
-  private
-  
-  def prefix_url
-    if url !~ /^https://duellinks.konami.net/
-        errors.add(:url, " は https://duellinks.konami.net/ から始まるようにしましょう!")
-    end
-  end
   
 end
 
