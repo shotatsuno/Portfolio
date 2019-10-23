@@ -1,5 +1,5 @@
 current directory: /vagrant/MakeDecker/vendor/bundle/ruby/2.5.0/gems/mysql2-0.5.2/ext/mysql2
-/usr/bin/ruby2.5 -r ./siteconf20191021-2022-7v9kb5.rb extconf.rb
+/usr/bin/ruby2.5 -r ./siteconf20191023-17822-1tlbelm.rb extconf.rb
 checking for rb_absint_size()... yes
 checking for rb_absint_singlebit_p()... yes
 checking for rb_wait_for_single_fd()... yes
