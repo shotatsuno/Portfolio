@@ -77,8 +77,6 @@ gem "refile-mini_magick"
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'kaminari','~> 1.1.1'
-gem 'json'
-gem 'mysql2'
 gem 'listen', '>= 3.0.5', '< 3.2'
 
 

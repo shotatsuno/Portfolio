@@ -9,7 +9,7 @@
 
       <div class = "form-group-new-form col-8 offset-2 post-1">
         <%= f.label :deck_name, 'デッキ名を入力（必須）',class:"post-deck-label"%></br>
-        <%= f.text_field :deck_name, class:"post-deck-name-box" %></br>
+        <%= f.text_field :deck_name,placeholder: "20文字まで", class:"post-deck-name-box" %></br>
       </div>
 
 
@@ -34,7 +34,7 @@
   
       <div class = "form-group-new-form  col-8 offset-2 post-1">
         <h2 class="post-deck-label">デッキのURLをアップロード（任意）</h2>
-        <%= f.text_field :url, class:"upload-deck-url-field" %>
+        <%= f.text_field :url,placeholder:"https://duellinks.konami.net/att/", class:"upload-deck-url-field" %>
       </div>
   
       <div class = "form-group-new-form col-12">
@@ -44,8 +44,8 @@
       <div class = "form-group-new-form  col-8 offset-2 post-1">
         <h2 class="post-deck-label">デッキの説明（必須）</h2>
         <p>デッキの特徴を入力しよう！</p>
-          <button type="button" class="btn btn-primary deck-detail-btn" data-toggle="modal" data-target="#exampleModalCenter">
-          入力
+          <button type="button" class="btn-lg btn-primary deck-detail-btn" data-toggle="modal" data-target="#exampleModalCenter">
+          <div class="deck-post-btn-size">入力</div>
           </button>
       </div>
 
@@ -60,7 +60,7 @@
                   </button>
               </div>
                   <div class="modal-body">
-                     <%= f.text_area :deck_detail, class: "form-control",size: "100x20" %>
+                     <%= f.text_area :deck_detail,placeholder:"500文字まで", class: "form-control",size: "100x20" %>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
@@ -72,7 +72,7 @@
 
 
       
-    <%= f.submit "投稿する",class:"btn btn-primary post-bt" %>
+    <%= f.submit "投稿する",class:"btn-lg btn-primary post-bt" %>
   
   <% end %>
   </div>

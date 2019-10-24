@@ -29,14 +29,14 @@ class User < ApplicationRecord
   has_one_attached :image
   
   #お気に入り機能
-  has_many :like_decks
-  has_many :likedecks, through: :like_decks, source: :deck
+  has_many :like_decks, dependent: :destroy
+  has_many :likedecks, through: :like_decks, source: :deck, dependent: :destroy
   
   #フォロワー機能
-  has_many :relationships
-  has_many :followings, through: :relationships, source: :follow
-  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
-  has_many :followers, through: :reverse_of_relationships, source: :user
+  has_many :relationships, dependent: :destroy
+  has_many :followings, through: :relationships, source: :follow, dependent: :destroy
+  has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id', dependent: :destroy
+  has_many :followers, through: :reverse_of_relationships, source: :user, dependent: :destroy
   
 #フォロワー機能メソッド
   def follow(other_user)
