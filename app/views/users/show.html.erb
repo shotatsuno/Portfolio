@@ -46,7 +46,7 @@
                     <tr>
                       <td class="deck_image" rowspan="3">
                         <% if f.image.attached? %>
-                          <%= image_tag f.image.variant(resize:'300x300').processed %>
+                          <%=link_to image_tag(f.image.variant(resize:'300x300').processed) ,f.image,:rel => "lightbox"%>
                         <% end %>
                       </td>
 

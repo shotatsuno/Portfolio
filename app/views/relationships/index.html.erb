@@ -22,7 +22,7 @@
         <div class="form-group">
           <div class="row">
             <div class="col-3 offset-1">
-              <%= link_to user_path(f.id),class:"link-color" do %>
+              <%= link_to user_path(f.id),class:"link-color-user" do %>
                 <div class="users-image-index"><%= attachment_image_tag f, :profile_image, :fill,120,120,fallback:'/images/no_image.jpg' %></div>
                   <%= f.user_name %>
               <% end %>

@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   delete 'destroy_link_theme/:id' => 'admins#destroy_link_theme', as: 'destroy_link_theme'
   
   #アドミンユーザー管理
-  resources :admin_users, only: [:index, :show]
+  resources :admin_users, only: [:index, :show, :destroy]
   get 'admin_search_user' => 'admin_users#admin_search_user'
   
   #問合せ
