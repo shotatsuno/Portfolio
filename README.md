@@ -12,4 +12,15 @@ Yu-Gi-Oh duellinks MakeDecker
 # Usage
 Visit the website http://www.makedecker.work and register yourself from the upper-right menu botton.
 
+# Ruby version
+2.5.5
+
+# Database 
+MySql
+
+# Server
+AWS
+
+
+
 
