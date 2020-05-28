@@ -76,7 +76,7 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'devise-i18n'
 gem 'devise-i18n-views'
-gem 'kaminari','~> 1.1.1'
+gem 'kaminari','~> 1.2.1'
 gem 'listen', '>= 3.0.5', '< 3.2'
 
 
